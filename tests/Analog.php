@@ -8,7 +8,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 	function test_analog () {
 		// Test default formatting
 		$this->assertEquals (
-			sprintf ("%s - %s - %d - %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 0, 'Testing'),
+			sprintf ("%s - %s - %d - %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 3, 'Testing'),
 			Analog::format_message ('Testing')
 		);
 
@@ -31,7 +31,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 		// Check on /tmp/log.txt
 		Analog::log ('Foo');
 		$this->assertEquals (
-			sprintf ("%s, %s, %d, %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 0, 'Foo'),
+			sprintf ("%s, %s, %d, %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 3, 'Foo'),
 			file_get_contents (Analog::location ())
 		);
 		unlink (Analog::location ());
@@ -43,7 +43,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 
 		Analog::log ('Testing');
 		$this->assertEquals (
-			sprintf ("%s, %s, %d, %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 0, 'Testing'),
+			sprintf ("%s, %s, %d, %s\n", 'localhost', gmdate ('Y-m-d H:i:s'), 3, 'Testing'),
 			self::$log
 		);
 	}
