@@ -1,7 +1,7 @@
-# Analog - PHP 5.3+ logging class
+## Analog - PHP 5.3+ logging class
 
-Copyright: (c) 2012 Johnny Broadway
-License: http://www.opensource.org/licenses/mit-license.php
+* Copyright: (c) 2012 Johnny Broadway
+* License: http://www.opensource.org/licenses/mit-license.php
 
 A short and simple logging class for based on the idea of using closures for
 configurability and extensibility. Functions as a static class, but you can
@@ -10,14 +10,15 @@ completely control the formatting and writing of log messages through closures.
 By default, this class will write to a file named `/tmp/log.txt` using a format
 `"machine - date - level - message\n"`.
 
-I wrote this because I wanted something simple and small like KLogger, and
-preferably not torn out of a wider framework if possible. After searching,
-I wasn't happy with the single-purpose libraries I found. With KLogger for
-example, I didn't want an object instance but rather a static class, and I
-wanted more flexibility in the back-end.
+I wrote this because I wanted something small and simple like
+[KLogger](https://github.com/katzgrau/KLogger), and preferably not torn out
+of a wider framework if possible. After searching, I wasn't happy with the
+single-purpose libraries I found. With KLogger for example, I didn't want an
+object instance but rather a static class, and I wanted more flexibility in
+the back-end.
 
 I also found that the ones that had really flexible back-ends supported a lot
-that I could never personally foresee needing, and could be easier to extend
+that I could never personally foresee needing, and could be made easier to extend
 with new back-ends that may be needed over time. Closures seem a natural fit for
 this kind of thing.
 
