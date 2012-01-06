@@ -156,7 +156,7 @@ class Analog {
 	/**
 	 * Format the message.
 	 */
-	public static function format_message ($message, $level = 0) {
+	public static function format_message ($message, $level = 3) {
 		$format = self::format ();
 
 		if (self::$machine === null) {
@@ -195,11 +195,12 @@ class Analog {
 
 	/**
 	 * This is the main function you will call to log messages.
+	 * Defaults to severity level Analog::ERROR.
 	 * Usage:
 	 *
 	 *     Analog::log ('Debug info', Analog::DEBUG);
 	 */
-	public static function log ($message, $level = 0) {
+	public static function log ($message, $level = 3) {
 		return self::write (self::format_message ($message, $level));
 	}
 }
