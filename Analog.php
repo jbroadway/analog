@@ -108,7 +108,7 @@ class Analog {
 	 * The location to save the log output. See Analog::location()
 	 * for details on setting this.
 	 */
-	private static $location = '/tmp/log.txt';
+	private static $location = null;
 
 	/**
 	 * The name of the current machine, defaults to $_SERVER['SERVER_ADDR']
@@ -136,7 +136,8 @@ class Analog {
 	}
 
 	/**
-	 * Location getter/setter. Usage:
+	 * Location getter/setter. If no location is provided, it will set it to
+	 * sys_get_temp_dir() . '/analog.txt' as a default. Usage:
 	 *
 	 *    Analog::location ('my_log.txt');
 	 *
@@ -149,6 +150,8 @@ class Analog {
 	public static function location ($location = false) {
 		if ($location) {
 			self::$location = $location;
+		} elseif (! self::$location) {
+			self::$location = sys_get_temp_dir () . '/analog.txt';
 		}
 		return self::$location;
 	}
@@ -163,7 +166,7 @@ class Analog {
 			self::$machine = (isset ($_SERVER['SERVER_ADDR'])) ? $_SERVER['SERVER_ADDR'] : 'localhost';
 		}
 
-		if (is_object ($format) && get_class ($format) === 'Closure') {
+		if ($format instanceof Closure) {
 		    return $format (self::$machine, $level, $message);
 		}
 		return sprintf ($format, self::$machine, gmdate ('Y-m-d H:i:s'), $level, $message);
@@ -174,11 +177,11 @@ class Analog {
 	 */
 	public static function write ($message) {
 		$location = self::location ();
-		if (is_object ($location) && get_class ($location) === 'Closure') {
+		if ($location instanceof Closure) {
 			return $location ($message);
 		}
 
-		$f = fopen ($location, 'a');
+		$f = fopen ($location, 'a+');
 		if (! $f) {
 			throw new LogicException ('Could not open file for writing');
 		}
