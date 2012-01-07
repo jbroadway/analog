@@ -3,12 +3,14 @@
 * Copyright: (c) 2012 Johnny Broadway
 * License: http://www.opensource.org/licenses/mit-license.php
 
-A short and simple logging class for based on the idea of using closures for
-configurability and extensibility. Functions as a static class, but you can
-completely control the formatting and writing of log messages through closures.
+A short and simple logging class based on the idea of using closures for
+configurability and extensibility. It functions as a static class, but you can
+completely control the formatting and writing of log messages through closures
+(aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)).
 
-By default, this class will write to a file named `/tmp/log.txt` using a format
-`"machine - date - level - message\n"`.
+By default, this class will write to a file named `/tmp/log.txt` using the format
+`"machine - date - level - message\n"`, making it usable with no customization
+necessary.
 
 I wrote this because I wanted something very small and simple like
 [KLogger](https://github.com/katzgrau/KLogger), and preferably not torn out
@@ -19,8 +21,8 @@ the back-end.
 
 I also found some that had the flexibility also had more complexity, for example
 [Monolog](https://github.com/Seldaek/monolog) is 25 source files (not incl. tests).
-With closures, this seemed to be a good balance of small (57 total loc without
-comments) but still flexible.
+With closures, this seemed to be a good balance of small (57 total lines of code
+without comments) without sacrificing flexibility.
 
 > What about Analog, the logfile analyzer? Well, since it hasn't been updated
 > since 2004, I think it's safe to call a single-file PHP logging class the
