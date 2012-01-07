@@ -1,7 +1,6 @@
 <?php
 
-require '../Analog.php';
-require '../Analog/Handler/Syslog.php';
+require 'autoload.php';
 
 Analog::handler (Analog\Handler\Syslog::init ('analog', 'user'));
 

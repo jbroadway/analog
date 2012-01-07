@@ -1,7 +1,6 @@
 <?php
 
-require '../Analog.php';
-require '../Analog/Handler/Mail.php';
+require 'autoload.php';
 
 Analog::handler (Analog\Handler\Mail::init (
 	'you@example.com',

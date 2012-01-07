@@ -1,7 +1,6 @@
 <?php
 
-require '../Analog.php';
-require '../Analog/Handler/Mongo.php';
+require 'autoload.php';
 
 Analog::handler (Analog\Handler\Mongo::init (
 	'localhost:27017',

@@ -1,7 +1,6 @@
 <?php
 
-require '../Analog.php';
-require '../Analog/Handler/Variable.php';
+require 'autoload.php';
 
 $log = '';
 
