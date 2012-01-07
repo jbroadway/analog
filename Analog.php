@@ -125,7 +125,7 @@ class Analog {
 		if ($handler) {
 			self::$handler = $handler;
 		} elseif (! self::$handler) {
-			self::$handler = sys_get_temp_dir () . DIRECTORY_SEPARATOR . 'analog.txt';
+			self::$handler = realpath (sys_get_temp_dir ()) . DIRECTORY_SEPARATOR . 'analog.txt';
 		}
 		return self::$handler;
 	}
