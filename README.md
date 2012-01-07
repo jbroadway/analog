@@ -1,4 +1,4 @@
-## Analog - PHP 5.3+ logging class
+## Analog - PHP 5.3+ micro logging class
 
 * Copyright: (c) 2012 Johnny Broadway
 * License: http://www.opensource.org/licenses/mit-license.php
