@@ -177,6 +177,7 @@ class Analog {
 	 */
 	public static function write ($message) {
 		$location = self::location ();
+
 		if ($location instanceof Closure) {
 			return $location ($message);
 		}
@@ -207,5 +208,3 @@ class Analog {
 		return self::write (self::format_message ($message, $level));
 	}
 }
-
-?>
