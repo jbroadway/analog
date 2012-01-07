@@ -5,12 +5,12 @@
 
 A short and simple logging class based on the idea of using closures for
 configurability and extensibility. It functions as a static class, but you can
-completely control the formatting and writing of log messages through closures
+completely control the writing of log messages through a closure function
 (aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)).
 
-By default, this class will write to a file named `/tmp/log.txt` using the format
-`"machine - date - level - message\n"`, making it usable with no customization
-necessary.
+By default, this class will write to a file named `sys_get_temp_dir() . '/analog.txt'`
+using the format `"machine - date - level - message\n"`, making it usable with no
+customization necessary.
 
 I wrote this because I wanted something very small and simple like
 [KLogger](https://github.com/katzgrau/KLogger), and preferably not torn out
@@ -35,30 +35,20 @@ Usage:
 
 require_once ('Analog.php');
 
-// Default logging to /tmp/log.txt
-Analog::log ('Log this error', Analog::ERROR);
-
-// Create a custom object format
-Analog::format (function ($machine, $level, $message) {
-  return array (
-		'machine' => $machine,
-		'date'    => gmdate ('Y-m-d H:i:s'),
-		'level'   => $level,
-		'message' => $message
-	);
-});
+// Default logging to /tmp/analog.txt
+Analog::log ('Log this error');
 
 // Log to a MongoDB log collection
-Analog::location (function ($message) {
+Analog::handler (function ($info) {
 	static $conn = null;
 	if (! $conn) {
 		$conn = new Mongo ('localhost:27017');
 	}
-	$conn->mydb->log->insert ($message);
+	$conn->mydb->log->insert ($info);
 });
 
-// Log an error
-Analog::log ('The sky is falling!');
+// Log an alert
+Analog::log ('The sky is falling!', Analog::ALERT);
 
 // Log some debug info
 Analog::log ('Debugging info', Analog::DEBUG);
