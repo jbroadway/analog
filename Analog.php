@@ -151,7 +151,7 @@ class Analog {
 		if ($location) {
 			self::$location = $location;
 		} elseif (! self::$location) {
-			self::$location = sys_get_temp_dir () . '/analog.txt';
+			self::$location = sys_get_temp_dir () . DIRECTORY_SEPARATOR . 'analog.txt';
 		}
 		return self::$location;
 	}
