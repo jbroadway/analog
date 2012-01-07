@@ -102,13 +102,13 @@ class Analog {
 	/**
 	 * The default format for log messages (machine, date, level, message).
 	 */
-	public static $format = "%s - %s - %d - %s\n";
+	private static $format = "%s - %s - %d - %s\n";
 
 	/**
 	 * The location to save the log output. See Analog::location()
 	 * for details on setting this.
 	 */
-	public static $location = '/tmp/log.txt';
+	private static $location = '/tmp/log.txt';
 
 	/**
 	 * The name of the current machine, defaults to $_SERVER['SERVER_ADDR']
