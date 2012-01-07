@@ -12,6 +12,12 @@ By default, this class will write to a file named `sys_get_temp_dir() . '/analog
 using the format `"machine - date - level - message\n"`, making it usable with no
 customization necessary.
 
+You'll find some pre-written handlers in the Analog/Handlers folder, with examples
+for each in the examples folder. So far these include Mail, HTTP Post, Syslog, and
+logging to a variable reference.
+
+### Rationale
+
 I wrote this because I wanted something very small and simple like
 [KLogger](https://github.com/katzgrau/KLogger), and preferably not torn out
 of a wider framework if possible. After searching, I wasn't happy with the
@@ -28,7 +34,7 @@ without comments) without sacrificing flexibility.
 > since 2004, I think it's safe to call a single-file PHP logging class the
 > same thing without it being considered stepping on toes :)
 
-Usage:
+### Usage
 
 ```php
 <?php
