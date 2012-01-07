@@ -13,8 +13,8 @@ using the format `"machine - date - level - message\n"`, making it usable with n
 customization necessary.
 
 You'll find some pre-written handlers in the Analog/Handlers folder, with examples
-for each in the examples folder. So far these include Mail, HTTP Post, Syslog, and
-logging to a variable reference.
+for each in the examples folder. So far these include Mail, HTTP Post, Syslog, MongoDB,
+and logging to a variable reference.
 
 ### Rationale
 
