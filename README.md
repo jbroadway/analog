@@ -10,21 +10,21 @@ completely control the formatting and writing of log messages through closures.
 By default, this class will write to a file named `/tmp/log.txt` using a format
 `"machine - date - level - message\n"`.
 
-I wrote this because I wanted something small and simple like
+I wrote this because I wanted something very small and simple like
 [KLogger](https://github.com/katzgrau/KLogger), and preferably not torn out
 of a wider framework if possible. After searching, I wasn't happy with the
 single-purpose libraries I found. With KLogger for example, I didn't want an
 object instance but rather a static class, and I wanted more flexibility in
 the back-end.
 
-I also found that the ones that had really flexible back-ends supported a lot
-that I could never personally foresee needing, and could be made easier to extend
-with new back-ends that may be needed over time. Closures seem a natural fit for
-this kind of thing.
+I also found some that had the flexibility also had more complexity, for example
+[Monolog](https://github.com/Seldaek/monolog) is 25 source files (not incl. tests).
+With closures, this seemed to be a good balance of small (57 total loc without
+comments) but still flexible.
 
-What about Analog, the logfile analyzer? Well, since it hasn't been updated
-since 2004, I think it's safe to call a single-file PHP logging class the
-same thing without it being considered stepping on toes :)
+> What about Analog, the logfile analyzer? Well, since it hasn't been updated
+> since 2004, I think it's safe to call a single-file PHP logging class the
+> same thing without it being considered stepping on toes :)
 
 Usage:
 
@@ -38,7 +38,7 @@ Analog::log ('Log this error', Analog::ERROR);
 
 // Create a custom object format
 Analog::format (function ($machine, $level, $message) {
-  return (object) array (
+  return array (
 		'machine' => $machine,
 		'date'    => gmdate ('Y-m-d H:i:s'),
 		'level'   => $level,
