@@ -4,6 +4,7 @@ namespace Analog\Handler;
 
 /**
  * Post the log info to the specified address.
+ *
  * Usage:
  *
  *     $address = 'http://my-log-server/log-me';

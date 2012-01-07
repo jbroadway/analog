@@ -4,6 +4,7 @@ namespace Analog\Handler;
 
 /**
  * Send the log message to the specified email address.
+ *
  * Usage:
  *
  *     Analog::handler (Analog\Handler\Mail::init (

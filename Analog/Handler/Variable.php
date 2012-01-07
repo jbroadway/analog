@@ -4,6 +4,7 @@ namespace Analog\Handler;
 
 /**
  * Append the log info to a variable passed in as a reference.
+ *
  * Usage:
  *
  *     $my_log = '';

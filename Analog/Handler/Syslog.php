@@ -3,7 +3,9 @@
 namespace Analog\Handler;
 
 /**
- * Send the log message to the syslog service.
+ * Send the log message to the syslog service. This was borrowed largely
+ * from the Monolog syslog handler.
+ *
  * Usage:
  *
  *     Analog::handler (Analog\Handler\Syslog::init ('ident', 'facility'));
