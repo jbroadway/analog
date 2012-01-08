@@ -14,7 +14,7 @@ customization necessary.
 
 You'll find some pre-written handlers in the Analog/Handlers folder, with examples
 for each in the examples folder. So far these include Mail, HTTP Post, Syslog, MongoDB,
-and logging to a variable reference.
+FirePHP, and logging to a variable reference.
 
 ### Rationale
 
@@ -27,7 +27,7 @@ the back-end.
 
 I also found some that had the flexibility also had more complexity, for example
 [Monolog](https://github.com/Seldaek/monolog) is 25 source files (not incl. tests).
-With closures, this seemed to be a good balance of small (57 total lines of code
+With closures, this seemed to be a good balance of small (54 total lines of code
 without comments) without sacrificing flexibility.
 
 > What about Analog, the logfile analyzer? Well, since it hasn't been updated
