@@ -12,9 +12,20 @@ By default, this class will write to a file named `sys_get_temp_dir() . '/analog
 using the format `"machine - date - level - message\n"`, making it usable with no
 customization necessary.
 
-You'll find some pre-written handlers in the Analog/Handlers folder, with examples
-for each in the examples folder. So far these include Mail, HTTP Post, Syslog, MongoDB,
-FirePHP, Multi, Stderr, and logging to a variable reference.
+You'll find a number of pre-written handlers in the Analog/Handlers folder, with
+examples for each in the examples folder. These include:
+
+* Buffer - Buffer messages to send all at once (works with Mail handler)
+* File - Append messages to a file
+* FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
+* Mail - Send email notices
+* Mongo - Save to MongoDB collection
+* Multi - Send different log levels to different handlers
+* Null - Do nothing
+* Post - Send messages over HTTP POST to another machine
+* Stderr - Send messages to STDERR
+* Syslog - Send messages to syslog
+* Variable - Buffer messages to a variable reference.
 
 ### Rationale
 
@@ -27,8 +38,8 @@ the back-end.
 
 I also found some that had the flexibility also had more complexity, for example
 [Monolog](https://github.com/Seldaek/monolog) is 25 source files (not incl. tests).
-With closures, this seemed to be a good balance of small (54 total lines of code
-without comments) without sacrificing flexibility.
+With closures, this seemed to be a good balance of small without sacrificing
+flexibility.
 
 > What about Analog, the logfile analyzer? Well, since it hasn't been updated
 > since 2004, I think it's safe to call a single-file PHP logging class the
@@ -61,3 +72,5 @@ Analog::log ('Debugging info', Analog::DEBUG);
 
 ?>
 ```
+
+For more examples, see the [examples](https://github.com/jbroadway/analog/tree/master/examples) folder.
