@@ -15,9 +15,13 @@ namespace Analog\Handler;
  */
 class Mail {
 	public static function init ($to, $subject, $from) {
-		return function ($info) use ($to, $subject, $from) {
+		return function ($info, $buffered = false) use ($to, $subject, $from) {
 			$headers = sprintf ("From: %s\r\nContent-type: text/plain; charset=utf-8\r\n", $from);
-			$body = vsprintf ("Machine: %s\nDate: %s\nLevel: %d\nMessage: %s", $info);
+			if ($buffered) {
+				$body = "Logged:\n" . $info;
+			} else {
+				$body = vsprintf ("Machine: %s\nDate: %s\nLevel: %d\nMessage: %s", $info);
+			}
 			mail ($to, $subject, wordwrap ($body, 70), $headers);
 		};
 	}
