@@ -14,7 +14,7 @@ customization necessary.
 
 You'll find some pre-written handlers in the Analog/Handlers folder, with examples
 for each in the examples folder. So far these include Mail, HTTP Post, Syslog, MongoDB,
-FirePHP, and logging to a variable reference.
+FirePHP, Multi, Stderr, and logging to a variable reference.
 
 ### Rationale
 
