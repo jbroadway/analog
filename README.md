@@ -12,8 +12,8 @@ By default, this class will write to a file named `sys_get_temp_dir() . '/analog
 using the format `"machine - date - level - message\n"`, making it usable with no
 customization necessary.
 
-You'll find a number of pre-written handlers in the Analog/Handlers folder, with
-examples for each in the examples folder. These include:
+Analog also comes with a dozen pre-written handlers in the Analog/Handlers folder,
+with examples for each in the examples folder. These include:
 
 * Buffer - Buffer messages to send all at once (works with Mail handler)
 * File - Append messages to a file
@@ -27,6 +27,9 @@ examples for each in the examples folder. These include:
 * Stderr - Send messages to STDERR
 * Syslog - Send messages to syslog
 * Variable - Buffer messages to a variable reference.
+
+So while it's a micro class (the core is 43 lines of code, plus the handler of your choice),
+it's highly extensible and very capable out of the box too.
 
 ### Rationale
 
