@@ -18,6 +18,7 @@ examples for each in the examples folder. These include:
 * Buffer - Buffer messages to send all at once (works with Mail handler)
 * File - Append messages to a file
 * FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
+* LevelBuffer - Buffer messages and send only if sufficient error level reached
 * Mail - Send email notices
 * Mongo - Save to MongoDB collection
 * Multi - Send different log levels to different handlers
