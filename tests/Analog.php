@@ -1,6 +1,7 @@
 <?php
 
 require_once ('Analog.php');
+require_once ('Analog/Handler/File.php');
 
 class AnalogTest extends PHPUnit_Framework_TestCase {
 	public static $log = '';

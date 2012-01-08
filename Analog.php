@@ -153,24 +153,10 @@ class Analog {
 	private static function write ($struct) {
 		$handler = self::handler ();
 
-		if ($handler instanceof Closure) {
-			return $handler ($struct);
+		if (! $handler instanceof Closure) {
+			$handler = Analog\Handler\File::init ($handler);
 		}
-
-		$f = fopen ($handler, 'a+');
-		if (! $f) {
-			throw new LogicException ('Could not open file for writing');
-		}
-
-		if (! flock ($f, LOCK_EX | LOCK_NB)) {
-			throw new RuntimeException ('Could not lock file');
-		}
-
-		$message = vsprintf (self::$format, $struct);
-		fwrite ($f, $message);
-		flock ($f, LOCK_UN);
-		fclose ($f);
-		return true;
+		return $handler ($struct);
 	}
 
 	/**
