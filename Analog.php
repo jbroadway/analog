@@ -147,7 +147,8 @@ class Analog {
 	}
 
 	/**
-	 * Write a raw message to the log.
+	 * Write a raw message to the log using a function or the default
+	 * file logging.
 	 */
 	private static function write ($struct) {
 		$handler = self::handler ();
