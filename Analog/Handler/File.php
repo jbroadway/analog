@@ -20,11 +20,11 @@ class File {
 		return function ($info) use ($file) {
 			$f = fopen ($file, 'a+');
 			if (! $f) {
-				throw new LogicException ('Could not open file for writing');
+				throw new \LogicException ('Could not open file for writing');
 			}
 	
 			if (! flock ($f, LOCK_EX | LOCK_NB)) {
-				throw new RuntimeException ('Could not lock file');
+				throw new \RuntimeException ('Could not lock file');
 			}
 	
 			fwrite ($f, vsprintf (\Analog::$format, $info));
