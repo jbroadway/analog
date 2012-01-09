@@ -42,7 +42,7 @@ class Buffer {
 	 */
 	public static function init ($handler) {
 		self::$handler = $handler;
-		self::$destructor = new BufferDestructor ();
+		self::$destructor = new \Analog\Handler\Buffer\Destructor ();
 
 		return function ($info) {
 			Buffer::$buffer .= vsprintf (\Analog::$format, $info);
@@ -55,14 +55,5 @@ class Buffer {
 	public function close () {
 		$handler = self::$handler;
 		return $handler (self::$buffer, true);
-	}
-}
-
-/**
- * A destructor object to call close() for us at the end of the request.
- */
-class BufferDestructor {
-	public function __destruct () {
-		Buffer::close ();
 	}
 }
