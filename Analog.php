@@ -153,7 +153,7 @@ class Analog {
 	private static function write ($struct) {
 		$handler = self::handler ();
 
-		if (! $handler instanceof Closure) {
+		if (! $handler instanceof \Closure) {
 			$handler = Analog\Handler\File::init ($handler);
 		}
 		return $handler ($struct);
