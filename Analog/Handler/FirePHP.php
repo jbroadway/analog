@@ -48,9 +48,7 @@ class FirePHP {
 			);
 			$info['message'] = $info['message'][0];
 		} else {
-			$extra = array (
-				'Type' => self::$log_levels[$info['level']]
-			);
+			$extra = array ('Type' => self::$log_levels[$info['level']]);
 		}
 
 		$json = json_encode (array ($extra, $info['message']));

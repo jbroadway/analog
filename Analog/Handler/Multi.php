@@ -34,8 +34,7 @@ class Multi {
 			$level = $info['level'];
 			while ($level <= 7) {
 				if (isset ($handlers[$level])) {
-					$handler = $handlers[$level];
-					return $handler ($info);
+					return $handlers[$level] ($info);
 				}
 				$level++;
 			}
