@@ -4,7 +4,7 @@ require '../Analog.php';
 
 Analog::handler (Analog\Handler\LevelBuffer::init (
 	Analog\Handler\Mail::init (
-		'john.luxford@gmail.com',
+		'you@example.com',
 		'Attention: A critical error has occurred',
 		'noreply@example.com'
 	),
