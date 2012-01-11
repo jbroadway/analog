@@ -28,7 +28,7 @@ with examples for each in the examples folder. These include:
 * Syslog - Send messages to syslog
 * Variable - Buffer messages to a variable reference.
 
-So while it's a micro class (the core is 43 lines of code, plus the handler of your choice),
+So while it's a micro class (the core is 51 lines of code, plus the handler of your choice),
 it's highly extensible and very capable out of the box too.
 
 ### Rationale
