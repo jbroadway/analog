@@ -21,14 +21,14 @@ class FirePHP {
 	 * Translation list for log levels.
 	 */
 	private static $log_levels = array (
-		\Analog::DEBUG    => 'LOG',
-		\Analog::INFO     => 'INFO',
-		\Analog::NOTICE   => 'INFO',
-		\Analog::WARNING  => 'WARN',
-		\Analog::ERROR    => 'ERROR',
-		\Analog::CRITICAL => 'ERROR',
-		\Analog::ALERT    => 'ERROR',
-		\Analog::URGENT   => 'ERROR'
+		\Analog\Analog::DEBUG    => 'LOG',
+		\Analog\Analog::INFO     => 'INFO',
+		\Analog\Analog::NOTICE   => 'INFO',
+		\Analog\Analog::WARNING  => 'WARN',
+		\Analog\Analog::ERROR    => 'ERROR',
+		\Analog\Analog::CRITICAL => 'ERROR',
+		\Analog\Analog::ALERT    => 'ERROR',
+		\Analog\Analog::URGENT   => 'ERROR'
 	);
 
 	/**

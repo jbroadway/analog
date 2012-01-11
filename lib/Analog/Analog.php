@@ -1,5 +1,7 @@
 <?php
 
+namespace Analog;
+
 /**
  * Analog - PHP 5.3+ logging class
  *
@@ -131,6 +133,16 @@ class Analog {
 	}
 
 	/**
+	 * Format getter/setter.
+	 */
+	public static function format ($format = false) {
+		if ($format) {
+			self::$format = $format;
+		}
+		return self::$format;
+	}
+
+	/**
 	 * Get the log info as an associative array.
 	 */
 	private static function get_struct ($message, $level) {
@@ -154,7 +166,7 @@ class Analog {
 		$handler = self::handler ();
 
 		if (! $handler instanceof \Closure) {
-			$handler = Analog\Handler\File::init ($handler);
+			$handler = \Analog\Handler\File::init ($handler);
 		}
 		return $handler ($struct);
 	}
@@ -170,16 +182,3 @@ class Analog {
 		return self::write (self::get_struct ($message, $level));
 	}
 }
-
-/**
- * Register a very simple autoloader for the pre-built handlers
- * based on the current working directory.
- */
-spl_autoload_register (function ($class) {
-	$file = str_replace ('\\', DIRECTORY_SEPARATOR, ltrim ($class, '\\')) . '.php';
-	if (file_exists (__DIR__ . DIRECTORY_SEPARATOR . $file)) {
-		require_once $file;
-		return true;
-	}
-	return false;
-});

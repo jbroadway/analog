@@ -44,7 +44,7 @@ class LevelBuffer {
 		self::$handler = $handler;
 
 		return function ($info) use ($until_level) {
-			LevelBuffer::$buffer .= vsprintf (\Analog::$format, $info);
+			LevelBuffer::$buffer .= vsprintf (\Analog\Analog::format (), $info);
 			if ($info['level'] <= $until_level) {
 				// flush and reset the buffer
 				LevelBuffer::flush ();

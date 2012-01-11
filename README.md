@@ -1,10 +1,10 @@
-## Analog - PHP 5.3+ micro logging class
+## Analog - PHP 5.3+ micro logging package
 
 * Copyright: (c) 2012 Johnny Broadway
 * License: http://www.opensource.org/licenses/mit-license.php
 
-A short and simple logging class based on the idea of using closures for
-configurability and extensibility. It functions as a static class, but you can
+A [MicroPHP](http://microphp.org/) logging package based on the idea of using closures
+for configurability and extensibility. It functions as a static class, but you can
 completely control the writing of log messages through a closure function
 (aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)).
 
@@ -28,8 +28,7 @@ with examples for each in the examples folder. These include:
 * Syslog - Send messages to syslog
 * Variable - Buffer messages to a variable reference.
 
-So while it's a micro class (the core is 51 lines of code, plus the handler of your choice),
-it's highly extensible and very capable out of the box too.
+So while it's a micro class, it's highly extensible and very capable out of the box too.
 
 ### Rationale
 
@@ -50,6 +49,8 @@ flexibility.
 > same thing without it being considered stepping on toes :)
 
 ### Usage
+
+Standard usage:
 
 ```php
 <?php
@@ -73,6 +74,27 @@ Analog::log ('The sky is falling!', Analog::ALERT);
 
 // Log some debug info
 Analog::log ('Debugging info', Analog::DEBUG);
+
+?>
+```
+
+PSR-0 usage:
+
+```php
+<?php
+
+require_once ('SplClassLoader.php');
+
+$loader = new SplClassLoader ('Analog', 'lib');
+$loader->register ();
+
+use \Analog\Analog;
+
+Analog::log ('Log this error');
+
+Analog::handler (\Analog\Handler\FirePHP::init ());
+
+Analog::log ('Take me to your browser');
 
 ?>
 ```

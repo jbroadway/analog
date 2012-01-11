@@ -1,6 +1,6 @@
 <?php
 
-require '../Analog.php';
+require '../lib/Analog.php';
 
 Analog::log ('foo');
 Analog::log ('bar');

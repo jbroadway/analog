@@ -1,6 +1,6 @@
 <?php
 
-require '../Analog.php';
+require '../lib/Analog.php';
 
 Analog::handler (Analog\Handler\LevelBuffer::init (
 	Analog\Handler\Mail::init (

@@ -12,12 +12,12 @@ namespace Analog\Handler;
  */
 class Syslog {
 	public static $levels = array (
-		\Analog::DEBUG    => LOG_DEBUG,
-		\Analog::INFO     => LOG_INFO,
-		\Analog::WARNING  => LOG_WARNING,
-		\Analog::ERROR    => LOG_ERR,
-		\Analog::CRITICAL => LOG_CRIT,
-		\Analog::ALERT    => LOG_ALERT
+		\Analog\Analog::DEBUG    => LOG_DEBUG,
+		\Analog\Analog::INFO     => LOG_INFO,
+		\Analog\Analog::WARNING  => LOG_WARNING,
+		\Analog\Analog::ERROR    => LOG_ERR,
+		\Analog\Analog::CRITICAL => LOG_CRIT,
+		\Analog\Analog::ALERT    => LOG_ALERT
 	);
 
 	public static $facilities = array (

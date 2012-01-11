@@ -1,6 +1,6 @@
 <?php
 
-require '../Analog.php';
+require '../lib/Analog.php';
 
 Analog::handler (Analog\Handler\Stderr::init ());
 

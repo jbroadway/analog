@@ -1,6 +1,6 @@
 <?php
 
-require '../Analog.php';
+require '../lib/Analog.php';
 
 $errors = "Errors:\n";
 $warnings = "Warnings:\n";
