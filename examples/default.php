@@ -1,6 +1,6 @@
 <?php
 
-require 'autoload.php';
+require '../Analog.php';
 
 Analog::log ('foo');
 Analog::log ('bar');

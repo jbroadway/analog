@@ -1,6 +1,6 @@
 <?php
 
-require 'autoload.php';
+require '../Analog.php';
 
 Analog::handler (Analog\Handler\Buffer::init (
 	Analog\Handler\Mail::init (
