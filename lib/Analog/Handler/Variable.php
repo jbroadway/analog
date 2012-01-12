@@ -18,7 +18,7 @@ namespace Analog\Handler;
 class Variable {
 	public static function init (&$log) {
 		return function ($info) use (&$log) {
-			$log .= vsprintf (\Analog\Analog::format (), $info);
+			$log .= vsprintf (\Analog\Analog::$format, $info);
 		};
 	}
 }

@@ -45,7 +45,7 @@ class Buffer {
 		self::$destructor = new \Analog\Handler\Buffer\Destructor ();
 
 		return function ($info) {
-			Buffer::$buffer .= vsprintf (\Analog\Analog::format (), $info);
+			Buffer::$buffer .= vsprintf (\Analog\Analog::$format, $info);
 		};
 	}
 

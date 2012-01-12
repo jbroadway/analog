@@ -14,21 +14,9 @@ spl_autoload_register (function ($class) {
 });
 
 /**
- * We simply extend the main class so that Analog is
+ * We simply alias extend the main class so that Analog is
  * available as a global class. This saves us adding
  * `use \Analog\Analog` at the top of every file,
  * or worse, typeing `\Analog\Analog::log()` everywhere.
  */
-class Analog extends \Analog\Analog {
-	/**
-	 * We need to override format() to always write to
-	 * the parent, since the pre-built handlers have to
-	 * assume they're using the PSR-0 class.
-	 */
-	public static function format ($format = false) {
-		if ($format) {
-			\Analog\Analog::$format = $format;
-		}
-		return \Analog\Analog::$format;
-	}
-}
+class_alias ('\Analog\Analog', 'Analog');

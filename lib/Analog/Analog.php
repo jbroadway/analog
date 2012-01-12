@@ -133,16 +133,6 @@ class Analog {
 	}
 
 	/**
-	 * Format getter/setter.
-	 */
-	public static function format ($format = false) {
-		if ($format) {
-			self::$format = $format;
-		}
-		return self::$format;
-	}
-
-	/**
 	 * Get the log info as an associative array.
 	 */
 	private static function get_struct ($message, $level) {

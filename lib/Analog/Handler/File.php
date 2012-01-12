@@ -27,7 +27,7 @@ class File {
 				throw new \RuntimeException ('Could not lock file');
 			}
 	
-			fwrite ($f, vsprintf (\Analog\Analog::format (), $info));
+			fwrite ($f, vsprintf (\Analog\Analog::$format, $info));
 			flock ($f, LOCK_UN);
 			fclose ($f);
 		};
