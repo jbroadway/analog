@@ -17,7 +17,7 @@ namespace Analog\Handler;
  */
 class File {
 	public static function init ($file) {
-		return function ($info) use ($file) {
+		return function ($info, $buffered = false) use ($file) {
 			$f = fopen ($file, 'a+');
 			if (! $f) {
 				throw new \LogicException ('Could not open file for writing');
@@ -27,7 +27,9 @@ class File {
 				throw new \RuntimeException ('Could not lock file');
 			}
 	
-			fwrite ($f, vsprintf (\Analog\Analog::$format, $info));
+			fwrite ($f, ($buffered)
+				? $info
+				: vsprintf (\Analog\Analog::$format, $info));
 			flock ($f, LOCK_UN);
 			fclose ($f);
 		};

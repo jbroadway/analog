@@ -2,12 +2,10 @@
 
 require '../lib/Analog.php';
 
+$log = '';
+
 Analog::handler (Analog\Handler\LevelBuffer::init (
-	Analog\Handler\Mail::init (
-		'you@example.com',
-		'Attention: A critical error has occurred',
-		'noreply@example.com'
-	),
+	Analog\Handler\Variable::init ($log),
 	Analog::CRITICAL
 ));
 
@@ -16,7 +14,11 @@ Analog::log ('Debugging...', Analog::DEBUG);
 Analog::log ('Minor warning...', Analog::WARNING);
 Analog::log ('An error...', Analog::ERROR);
 
+echo "Log is still empty:\n" . $log . "\n";
+
 // but this will, and will include all the others in the log
 Analog::log ('Oh noes!', Analog::URGENT);
+
+echo "Log now has everything:\n" . $log;
 
 ?>

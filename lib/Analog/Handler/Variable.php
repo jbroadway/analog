@@ -17,8 +17,10 @@ namespace Analog\Handler;
  */
 class Variable {
 	public static function init (&$log) {
-		return function ($info) use (&$log) {
-			$log .= vsprintf (\Analog\Analog::$format, $info);
+		return function ($info, $buffered = false) use (&$log) {
+			$log .= ($buffered)
+				? $info
+				: vsprintf (\Analog\Analog::$format, $info);
 		};
 	}
 }
