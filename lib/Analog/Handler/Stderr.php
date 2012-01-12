@@ -15,8 +15,10 @@ namespace Analog\Handler;
  */
 class Stderr {
 	public static function init () {
-		return function ($info) {
-			file_put_contents ('php://stderr', vsprintf (\Analog\Analog::$format, $info));
+		return function ($info, $buffered = false) {
+			file_put_contents ('php://stderr', ($buffered)
+				? $info
+				: vsprintf (\Analog\Analog::$format, $info));
 		};
 	}
 }
