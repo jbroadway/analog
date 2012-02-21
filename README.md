@@ -14,9 +14,10 @@ By default, this class will write to a file named `sys_get_temp_dir() . '/analog
 using the format `"machine - date - level - message\n"`, making it usable with no
 customization necessary.
 
-Analog also comes with a dozen pre-written handlers in the Analog/Handlers folder,
+Analog also comes with over a dozen pre-written handlers in the Analog/Handlers folder,
 with examples for each in the examples folder. These include:
 
+* Amon - Send logs to the [Amon](http://amon.cx/) server monitoring tool
 * Buffer - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
 * File - Append messages to a file
 * FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
