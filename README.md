@@ -8,7 +8,9 @@
 A [MicroPHP](http://microphp.org/) logging package based on the idea of using closures
 for configurability and extensibility. It functions as a static class, but you can
 completely control the writing of log messages through a closure function
-(aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)).
+(aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)),
+or use the `Analog\Logger` wrapper that implements the
+[PSR-3 specification](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md).
 
 By default, this class will write to a file named `sys_get_temp_dir() . '/analog.txt'`
 using the format `"machine - date - level - message\n"`, making it usable with no
@@ -99,6 +101,26 @@ Analog::log ('Log this error');
 Analog::handler (\Analog\Handler\FirePHP::init ());
 
 Analog::log ('Take me to your browser');
+
+?>
+```
+
+PSR-3 usage:
+
+```php
+<?php
+
+require_once 'vendor/autoload.php';
+
+$logger = new Analog\Logger;
+
+$log = '';
+
+$logger->handler (Analog\Handler\Variable::init ($log));
+
+$logger->alert ('Things are really happening right now!');
+
+var_dump ($log);
 
 ?>
 ```
