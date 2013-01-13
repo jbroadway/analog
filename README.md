@@ -61,7 +61,7 @@ Standard usage:
 ```php
 <?php
 
-require_once ('Analog.php');
+require_once 'Analog.php';
 
 // Default logging to /tmp/analog.txt
 Analog::log ('Log this error');
@@ -84,21 +84,26 @@ Analog::log ('Debugging info', Analog::DEBUG);
 ?>
 ```
 
-PSR-0 usage:
+PSR-0 usage (with Composer):
+
+```json
+{
+	"require": {
+		"analog/analog": "dev-master"
+	}
+}
+```
 
 ```php
 <?php
 
-require_once ('SplClassLoader.php');
+require_once 'vendor/autoload.php';
 
-$loader = new SplClassLoader ('Analog', 'lib');
-$loader->register ();
-
-use \Analog\Analog;
+use Analog\Analog;
 
 Analog::log ('Log this error');
 
-Analog::handler (\Analog\Handler\FirePHP::init ());
+Analog::handler (Analog\Handler\FirePHP::init ());
 
 Analog::log ('Take me to your browser');
 
