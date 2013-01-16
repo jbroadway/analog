@@ -110,7 +110,7 @@ use Analog\Analog;
 
 Analog::log ('Log this error');
 
-Analog::handler (Analog\Handler\FirePHP::init ());
+Analog::handler (\Analog\Handler\FirePHP::init ());
 
 Analog::log ('Take me to your browser');
 
