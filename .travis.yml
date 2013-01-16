@@ -1,4 +1,7 @@
 language: php
-phps:
+php:
   - 5.3
   - 5.4
+
+before_script: composer install --dev
+script: phpunit --coverage-text --verbose
