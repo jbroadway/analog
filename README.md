@@ -125,7 +125,7 @@ Usage with [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted
 ```json
 {
 	"require": {
-		"psr/log": "dev-master",
+		"psr/log": "1.*",
 		"analog/analog": "dev-master"
 	}
 }
