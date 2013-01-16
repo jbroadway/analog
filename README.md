@@ -56,7 +56,7 @@ flexibility.
 
 ### Usage
 
-Standard usage:
+Basic usage, with a custom handler function:
 
 ```php
 <?php
@@ -84,7 +84,10 @@ Analog::log ('Debugging info', Analog::DEBUG);
 ?>
 ```
 
-PSR-0 usage (with Composer):
+Usage with [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md),
+[Composer](http://getcomposer.org/), and the FirePHP handler:
+
+1\. Create a `composer.json` file in the root of your project with the following contents.
 
 ```json
 {
@@ -93,6 +96,10 @@ PSR-0 usage (with Composer):
 	}
 }
 ```
+
+2\. Run `php composer.phar install` from the terminal in the root of your project.
+
+3\. Include Composer's autoloader and use the `Analog\Analog` class.
 
 ```php
 <?php
@@ -110,7 +117,23 @@ Analog::log ('Take me to your browser');
 ?>
 ```
 
-PSR-3 usage:
+Usage with [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md),
+[Composer](http://getcomposer.org/), and the Variable handler:
+
+1\. Create a `composer.json` file in the root of your project with the following contents.
+
+```json
+{
+	"require": {
+		"psr/log": "dev-master",
+		"analog/analog": "dev-master"
+	}
+}
+```
+
+2\. Run `php composer.phar install` from the terminal in the root of your project.
+
+3\. Include Composer's autoloader and use the `Analog\Logger` class.
 
 ```php
 <?php
