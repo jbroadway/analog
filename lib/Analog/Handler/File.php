@@ -23,7 +23,7 @@ class File {
 				throw new \LogicException ('Could not open file for writing');
 			}
 	
-			if (! flock ($f, LOCK_EX | LOCK_NB)) {
+			if (! flock ($f, LOCK_EX)) {
 				throw new \RuntimeException ('Could not lock file');
 			}
 	
