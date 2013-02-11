@@ -56,7 +56,7 @@ class LevelBuffer {
 	/**
 	 * Passes the buffered log to the final $handler.
 	 */
-	public function flush () {
+	public static function flush () {
 		$handler = self::$handler;
 		return $handler (self::$buffer, true);
 	}
