@@ -171,4 +171,75 @@ class Analog {
 	public static function log ($message, $level = 3) {
 		return self::write (self::get_struct ($message, $level));
 	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::URGENT)
+	 * Usage:
+	 *
+	 *     Analog::urgent ('Debug info');
+	 */
+	public static function urgent ($message) {
+		return self::write (self::get_struct ($message, URGENT));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::ALERT)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function alert ($message) {
+		return self::write (self::get_struct ($message, ALERT));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::ERROR)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function error ($message) {
+		return self::write (self::get_struct ($message, ERROR));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::WARNING)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function warning ($message) {
+		return self::write (self::get_struct ($message, WARNING));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::NOTICE)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function notice ($message) {
+		return self::write (self::get_struct ($message, NOTICE));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::INFO)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function info ($message) {
+		return self::write (self::get_struct ($message, INFO));
+	}
+	
+	/**
+	 * Shortcut method for Analog::log($info, Analog::DEBUG)
+	 * Usage:
+	 *
+	 *     Analog::alert ('Debug info');
+	 */
+	public static function debug ($message) {
+		return self::write (self::get_struct ($message, DEBUG));
+	}
+	
 }
