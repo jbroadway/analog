@@ -25,7 +25,7 @@ class Threshold {
 	/**
 	 * This contains the handler to send to on close.
 	 */
-	private static $handler;
+	public static $handler;
 
 	/**
 	 * Accepts another handler function to be used on close().
@@ -36,7 +36,7 @@ class Threshold {
 
 		return function ($info) use ($until_level) {
 			if ($info['level'] <= $until_level) {
-				$handler = self::$handler;
+				$handler = Threshold::$handler;
 				$handler ($info);
 			}
 		};
