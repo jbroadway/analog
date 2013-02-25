@@ -32,6 +32,7 @@ with examples for each in the examples folder. These include:
 * Post - Send messages over HTTP POST to another machine
 * Stderr - Send messages to STDERR
 * Syslog - Send messages to syslog
+* Threshold - Only writes log messages above a certain threshold
 * Variable - Buffer messages to a variable reference.
 
 So while it's a micro class, it's highly extensible and very capable out of the box too.
