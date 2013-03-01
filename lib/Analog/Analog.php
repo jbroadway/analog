@@ -179,7 +179,7 @@ class Analog {
 	 *     Analog::urgent ('Debug info');
 	 */
 	public static function urgent ($message) {
-		return self::write (self::get_struct ($message, URGENT));
+		return self::write (self::get_struct ($message, self::URGENT));
 	}
 	
 	/**
@@ -189,7 +189,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function alert ($message) {
-		return self::write (self::get_struct ($message, ALERT));
+		return self::write (self::get_struct ($message, self::ALERT));
 	}
 	
 	/**
@@ -199,7 +199,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function error ($message) {
-		return self::write (self::get_struct ($message, ERROR));
+		return self::write (self::get_struct ($message, self::ERROR));
 	}
 	
 	/**
@@ -209,7 +209,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function warning ($message) {
-		return self::write (self::get_struct ($message, WARNING));
+		return self::write (self::get_struct ($message, self::WARNING));
 	}
 	
 	/**
@@ -219,7 +219,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function notice ($message) {
-		return self::write (self::get_struct ($message, NOTICE));
+		return self::write (self::get_struct ($message, self::NOTICE));
 	}
 	
 	/**
@@ -229,7 +229,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function info ($message) {
-		return self::write (self::get_struct ($message, INFO));
+		return self::write (self::get_struct ($message, self::INFO));
 	}
 	
 	/**
@@ -239,7 +239,7 @@ class Analog {
 	 *     Analog::alert ('Debug info');
 	 */
 	public static function debug ($message) {
-		return self::write (self::get_struct ($message, DEBUG));
+		return self::write (self::get_struct ($message, self::DEBUG));
 	}
 	
 }
