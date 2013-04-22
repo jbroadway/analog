@@ -112,6 +112,12 @@ class Logger implements LoggerInterface {
 		foreach ($context as $key => $val) {
 			if (is_object ($val) && get_class ($val) === 'DateTime') {
 				$val = $val->format ('Y-m-d H:i:s');
+			} elseif (is_object ($val)) {
+				$val = json_encode ($val);
+			} elseif (is_array ($val)) {
+				$val = join (', ', $val);
+			} elseif (is_resource ($val)) {
+				$val = (string) $val;
 			}
 			$replace['{' . $key . '}'] = $val;
 		}
