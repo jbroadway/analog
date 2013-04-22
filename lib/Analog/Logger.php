@@ -110,6 +110,9 @@ class Logger implements LoggerInterface {
 		// build a replacement array with braces around the context keys
 		$replace = array ();
 		foreach ($context as $key => $val) {
+			if (is_object ($val) && get_class ($val) === 'DateTime') {
+				$val = $val->format ('Y-m-d H:i:s');
+			}
 			$replace['{' . $key . '}'] = $val;
 		}
 		
