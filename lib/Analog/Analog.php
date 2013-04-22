@@ -196,7 +196,7 @@ class Analog {
 	 * Shortcut method for Analog::log($info, Analog::ERROR)
 	 * Usage:
 	 *
-	 *     Analog::alert ('Debug info');
+	 *     Analog::error ('Debug info');
 	 */
 	public static function error ($message) {
 		return self::write (self::get_struct ($message, self::ERROR));
@@ -206,7 +206,7 @@ class Analog {
 	 * Shortcut method for Analog::log($info, Analog::WARNING)
 	 * Usage:
 	 *
-	 *     Analog::alert ('Debug info');
+	 *     Analog::warning ('Debug info');
 	 */
 	public static function warning ($message) {
 		return self::write (self::get_struct ($message, self::WARNING));
@@ -216,7 +216,7 @@ class Analog {
 	 * Shortcut method for Analog::log($info, Analog::NOTICE)
 	 * Usage:
 	 *
-	 *     Analog::alert ('Debug info');
+	 *     Analog::notice ('Debug info');
 	 */
 	public static function notice ($message) {
 		return self::write (self::get_struct ($message, self::NOTICE));
@@ -226,7 +226,7 @@ class Analog {
 	 * Shortcut method for Analog::log($info, Analog::INFO)
 	 * Usage:
 	 *
-	 *     Analog::alert ('Debug info');
+	 *     Analog::info ('Debug info');
 	 */
 	public static function info ($message) {
 		return self::write (self::get_struct ($message, self::INFO));
@@ -236,7 +236,7 @@ class Analog {
 	 * Shortcut method for Analog::log($info, Analog::DEBUG)
 	 * Usage:
 	 *
-	 *     Analog::alert ('Debug info');
+	 *     Analog::debug ('Debug info');
 	 */
 	public static function debug ($message) {
 		return self::write (self::get_struct ($message, self::DEBUG));

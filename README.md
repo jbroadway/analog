@@ -21,6 +21,7 @@ with examples for each in the examples folder. These include:
 
 * Amon - Send logs to the [Amon](http://amon.cx/) server monitoring tool
 * Buffer - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
+* ChromeLogger - Sends messages to [Chrome Logger](http://craig.is/writing/chrome-logger) browser plugin
 * File - Append messages to a file
 * FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
 * GELF - Send message to the [Graylog2](http://www.graylog2.org/) log management server
