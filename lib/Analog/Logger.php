@@ -103,6 +103,10 @@ class Logger implements LoggerInterface {
 	 * Interpolates context values into the message placeholders.
 	 */
 	private function interpolate ($message, array $context = array ()) {
+		if (is_array ($message)) {
+			return $message;
+		}
+
 		// build a replacement array with braces around the context keys
 		$replace = array ();
 		foreach ($context as $key => $val) {
