@@ -115,7 +115,7 @@ class Logger implements LoggerInterface {
 			} elseif (is_object ($val)) {
 				$val = json_encode ($val);
 			} elseif (is_array ($val)) {
-				$val = join (', ', $val);
+				$val = json_encode ($val);
 			} elseif (is_resource ($val)) {
 				$val = (string) $val;
 			}
