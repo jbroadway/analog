@@ -14,10 +14,12 @@ class Syslog {
 	public static $levels = array (
 		\Analog\Analog::DEBUG    => LOG_DEBUG,
 		\Analog\Analog::INFO     => LOG_INFO,
+		\Analog\Analog::NOTICE   => LOG_NOTICE,
 		\Analog\Analog::WARNING  => LOG_WARNING,
 		\Analog\Analog::ERROR    => LOG_ERR,
 		\Analog\Analog::CRITICAL => LOG_CRIT,
-		\Analog\Analog::ALERT    => LOG_ALERT
+		\Analog\Analog::ALERT    => LOG_ALERT,
+		\Analog\Analog::URGENT   => LOG_EMERG
 	);
 
 	public static $facilities = array (
