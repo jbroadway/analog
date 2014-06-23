@@ -52,7 +52,7 @@ class Buffer {
 	/**
 	 * Passes the buffered log to the final $handler.
 	 */
-	public function close () {
+	public static function close () {
 		$handler = self::$handler;
 		return $handler (self::$buffer, true);
 	}
