@@ -8,16 +8,19 @@ namespace Analog\Handler;
  *
  * Usage:
  *
- *     Analog::handler (Analog\Handler\Multi::init (array (
- *         // anything error or worse goes to this
- *         Analog::ERROR   => Analog\Handler\Mail::init ($to, $subject, $from),
+ *		Analog::handler( Analog\Handler\Multi::init( array(
+ *			// anything error or worse goes to this
+ *			Analog::ERROR => array(
+ *				Analog\Handler\Mail::init( $to, $subject, $from ),
+ *				Analog\Handler\Stderr::init()
+ *			),
  *
- *         // Warnings are sent here
- *         Analog::WARNING => Analog\Handler\File::init ('logs/warnings.log'),
+ *			// Warnings are sent here
+ *			Analog::WARNING => Analog\Handler\File::init( 'logs/warnings.log' ),
  *
- *         // Debug and info messages sent here
- *         Analog::DEBUG   => Analog\Handler\Null::init () // do nothing
- *     )));
+ *			// Debug and info messages sent here
+ *			Analog::DEBUG   => Analog\Handler\Null::init() // do nothing
+ *		) ) );
  *     
  *     // will be ignored
  *     Analog::log ('Ignore me', Analog::DEBUG);
@@ -33,8 +36,17 @@ class Multi {
 		return function ($info) use ($handlers) {
 			$level = is_numeric ($info['level']) ? $info['level'] : 3;
 			while ($level <= 7) {
-				if (isset ($handlers[$level])) {
-					return $handlers[$level] ($info);
+				if ( isset ( $handlers[ $level ] ) ) {
+
+					if ( ! is_array( $handlers[ $level ] ) ) {
+						$handlers[ $level ] = array( $handlers[ $level ] );
+					}
+
+					foreach ( $handlers[ $level ] as $handler ) {
+						$handler( $info );
+					}
+
+					return;
 				}
 				$level++;
 			}
