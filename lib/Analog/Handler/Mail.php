@@ -16,6 +16,7 @@ namespace Analog\Handler;
 class Mail {
 	public static function init ($to, $subject, $from) {
 		return function ($info, $buffered = false) use ($to, $subject, $from) {
+			if($info=="") return; // do not send empty mail.
 			$headers = sprintf ("From: %s\r\nContent-type: text/plain; charset=utf-8\r\n", $from);
 			$body = ($buffered)
 				? "Logged:\n" . $info
