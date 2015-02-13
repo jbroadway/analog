@@ -30,9 +30,35 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 		);
 		unlink (Analog::handler ());
 	}
-
+	
 	/**
 	 * @depends test_format
+	 */
+	function test_tz_and_dates () {
+		// Test changing the date format
+		Analog::$date_format = 'r'; // RFC2822 format
+		Analog::log ('Foo');
+		$this->assertStringMatchesFormat (
+			"localhost, %s, %d %s %d %d:%d:%d +0000, 3, Foo\n",
+			file_get_contents (Analog::handler ())
+		);
+		unlink (Analog::handler ());
+
+		// Test changing the timezone
+		Analog::$timezone = 'GMT-6';
+		Analog::log ('Foo');
+		$this->assertStringMatchesFormat (
+			"localhost, %s, %d %s %d %d:%d:%d -0600, 3, Foo\n",
+			file_get_contents (Analog::handler ())
+		);
+		unlink (Analog::handler ());
+		
+		Analog::$date_format = 'Y-m-d H:i:s';
+		Analog::$timezone = 'GMT';
+	}
+
+	/**
+	 * @depends test_tz_and_dates
 	 */
 	function test_handler () {
 		// Test logging using a closure
