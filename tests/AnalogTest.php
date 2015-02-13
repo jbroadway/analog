@@ -45,7 +45,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 		unlink (Analog::handler ());
 
 		// Test changing the timezone
-		Analog::$timezone = 'GMT-6';
+		Analog::$timezone = 'CST';
 		Analog::log ('Foo');
 		$this->assertStringMatchesFormat (
 			"localhost, %s, %d %s %d %d:%d:%d -0600, 3, Foo\n",
