@@ -86,6 +86,8 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 			"localhost, %d-%d-%d %d:%d:%d, 1, Testing\n",
 			self::$log
 		);
+		
+		Analog::$default_level = 3;
 	}
 }
 
