@@ -99,6 +99,22 @@ class Analog {
 	public static $format = "%s - %s - %d - %s\n";
 
 	/**
+	 * The default date/time format for log messages written to a file.
+	 * Feeds into the `$format` property.
+	 */
+	public static $date_format = 'Y-m-d H:i:s';
+	
+	/**
+	 * Timezone for date/time values.
+	 */
+	public static $timezone = 'GMT';
+	
+	/**
+	 * Default log level.
+	 */
+	public static $default_level = 3;
+
+	/**
 	 * The method of saving the log output. See Analog::handler()
 	 * for details on setting this.
 	 */
@@ -140,9 +156,11 @@ class Analog {
 			self::$machine = (isset ($_SERVER['SERVER_ADDR'])) ? $_SERVER['SERVER_ADDR'] : 'localhost';
 		}
 
+		$dt = new \DateTime ('now', new \DateTimeZone (self::$timezone));
+
 		return array (
 			'machine' => self::$machine,
-			'date' => gmdate ('Y-m-d H:i:s'),
+			'date' => $dt->format (self::$date_format),
 			'level' => $level,
 			'message' => $message
 		);
@@ -163,12 +181,14 @@ class Analog {
 
 	/**
 	 * This is the main function you will call to log messages.
-	 * Defaults to severity level Analog::ERROR.
+	 * Defaults to severity level Analog::ERROR, which can be
+	 * changed via the `$default_level` property.
 	 * Usage:
 	 *
 	 *     Analog::log ('Debug info', Analog::DEBUG);
 	 */
-	public static function log ($message, $level = 3) {
+	public static function log ($message, $level = null) {
+		$level = ($level !== null) ? $level : self::$default_level;
 		return self::write (self::get_struct ($message, $level));
 	}
 	
