@@ -35,7 +35,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 	 * @depends test_format
 	 */
 	function test_tz_and_dates () {
-		// Test changing the date format
+		// Test changing the date_format
 		Analog::$date_format = 'r'; // RFC2822 format
 		Analog::log ('Foo');
 		$this->assertStringMatchesFormat (
@@ -69,6 +69,21 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 		Analog::log ('Testing');
 		$this->assertStringMatchesFormat (
 			"localhost, %d-%d-%d %d:%d:%d, 3, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+	}
+	
+	/**
+	 * @depends test_handler
+	 */
+	function test_level () {
+		// Test default_level change
+		Analog::$default_level = 1;
+		Analog::log ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 1, Testing\n",
 			self::$log
 		);
 	}
