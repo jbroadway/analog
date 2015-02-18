@@ -11,7 +11,7 @@ Analog::handler (Analog\Handler\Mongo::init (
 Analog::log ('Error message');
 Analog::log ('Debug info', Analog::DEBUG);
 
-$m = new Mongo ('localhost:27017');
+$m = new MongoClient ('mongodb://localhost:27017');
 $cur = $m->testing->log->find ();
 foreach ($cur as $doc) {
 	print_r ($doc);
