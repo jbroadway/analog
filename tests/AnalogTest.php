@@ -8,7 +8,7 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @covers Analog::handler
 	 * @covers Analog::log
-	 * @covers Analog::Handler::File::init
+	 * @covers Analog\Handler::File::init
 	 */
 	function test_default () {
 		@unlink (Analog::handler ());
