@@ -5,6 +5,11 @@ require_once ('lib/Analog.php');
 class AnalogTest extends PHPUnit_Framework_TestCase {
 	public static $log = '';
 
+	/**
+	 * @covers \Analog::Analog::handler
+	 * @covers \Analog::Analog::log
+	 * @covers \Analog::\Handler::File::init
+	 */
 	function test_default () {
 		@unlink (Analog::handler ());
 
@@ -92,6 +97,77 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 		);
 		
 		Analog::$default_level = 3;
+	}
+	
+	/*
+	 * @depends test_level
+	 * @covers \Analog::Analog::urgent
+	 * @covers \Analog::Analog::alert
+	 * @covers \Analog::Analog::critical
+	 * @covers \Analog::Analog::error
+	 * @covers \Analog::Analog::warning
+	 * @covers \Analog::Analog::notice
+	 * @covers \Analog::Analog::info
+	 * @covers \Analog::Analog::debug
+	 */
+	function test_aliases () {
+		self::$log = '';
+
+		Analog::urgent ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 0, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::alert ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 1, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::error ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 3, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::warning ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 4, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::notice ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 5, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::info ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 6, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
+
+		Analog::debug ('Testing');
+		$this->assertStringMatchesFormat (
+			"localhost, %d-%d-%d %d:%d:%d, 7, Testing\n",
+			self::$log
+		);
+
+		self::$log = '';
 	}
 }
 
