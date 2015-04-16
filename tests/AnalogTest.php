@@ -6,9 +6,9 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 	public static $log = '';
 
 	/**
-	 * @covers \Analog::Analog::handler
-	 * @covers \Analog::Analog::log
-	 * @covers \Analog::\Handler::File::init
+	 * @covers Analog::handler
+	 * @covers Analog::log
+	 * @covers Analog::Handler::File::init
 	 */
 	function test_default () {
 		@unlink (Analog::handler ());
@@ -101,14 +101,14 @@ class AnalogTest extends PHPUnit_Framework_TestCase {
 	
 	/*
 	 * @depends test_level
-	 * @covers \Analog::Analog::urgent
-	 * @covers \Analog::Analog::alert
-	 * @covers \Analog::Analog::critical
-	 * @covers \Analog::Analog::error
-	 * @covers \Analog::Analog::warning
-	 * @covers \Analog::Analog::notice
-	 * @covers \Analog::Analog::info
-	 * @covers \Analog::Analog::debug
+	 * @covers Analog::urgent
+	 * @covers Analog::alert
+	 * @covers Analog::critical
+	 * @covers Analog::error
+	 * @covers Analog::warning
+	 * @covers Analog::notice
+	 * @covers Analog::info
+	 * @covers Analog::debug
 	 */
 	function test_aliases () {
 		self::$log = '';
