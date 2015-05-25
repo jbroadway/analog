@@ -19,7 +19,7 @@ namespace Analog\Handler;
  *			Analog::WARNING => Analog\Handler\File::init( 'logs/warnings.log' ),
  *
  *			// Debug and info messages sent here
- *			Analog::DEBUG   => Analog\Handler\Null::init() // do nothing
+ *			Analog::DEBUG   => Analog\Handler\Ignore::init() // do nothing
  *		) ) );
  *     
  *     // will be ignored
