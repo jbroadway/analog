@@ -25,11 +25,11 @@ with examples for each in the examples folder. These include:
 * File - Append messages to a file
 * FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
 * GELF - Send message to the [Graylog2](http://www.graylog2.org/) log management server
+* Ignore - Do nothing
 * LevelBuffer - Buffer messages and send only if sufficient error level reached
 * Mail - Send email notices
 * Mongo - Save to MongoDB collection
 * Multi - Send different log levels to different handlers
-* Null - Do nothing
 * Post - Send messages over HTTP POST to another machine
 * Stderr - Send messages to STDERR
 * Syslog - Send messages to syslog
