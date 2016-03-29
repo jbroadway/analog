@@ -17,7 +17,8 @@ namespace Analog\Handler;
  * Alternately, if you have an existing Mongo connection,
  * you can simply initialize it with that:
  *
- *     $conn = new MongoClient ('localhost:27017');
+ *     $conn = new MongoClient ('localhost:27017');           // mongo driver
+ *     $conn = new MongoDB\Driver\Manager('localhost:27017'); // mongodb driver
  *     Analog::handler (Analog\Handler\Mongo::init (
  *         $conn,  // Mongo object
  *         'mydb', // database name
