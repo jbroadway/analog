@@ -27,6 +27,7 @@ with examples for each in the examples folder. These include:
 * GELF - Send message to the [Graylog2](http://www.graylog2.org/) log management server
 * Ignore - Do nothing
 * LevelBuffer - Buffer messages and send only if sufficient error level reached
+* LevelName - Convert log level numbers to names in log output
 * Mail - Send email notices
 * Mongo - Save to MongoDB collection
 * Multi - Send different log levels to different handlers
