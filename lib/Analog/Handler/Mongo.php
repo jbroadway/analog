@@ -27,12 +27,21 @@ namespace Analog\Handler;
  */
 class Mongo {
 	public static function init ($server, $database, $collection) {
-		if (extension_loaded('mongodb')) {
-			if ($server instanceof \MongoDB\Driver\Manager) {
-				$manager = $server;
-			} else {
+		if ($server instanceof \MongoDB\Driver\Manager) {
+			$driver = 'mongodb';
+			$manager = $server;
+		} elseif ($server instanceof \MongoClient) {
+			$db = $server->{$database};
+		} else {
+			if (class_exists('\MongoDB\Driver\Manager')) {
+				$driver = 'mongodb';
 				$manager = new \MongoDB\Driver\Manager("mongodb://$server");
+			} else {
+				$conn = new \MongoClient ("mongodb://$server");
+				$db = $conn->{$database};
 			}
+		}
+		if ($driver == 'mongodb') {
 			return function ($info) use ($manager, $database, $collection) {
 				$bulk = new \MongoDB\Driver\BulkWrite;
 				$bulk->insert($info);
@@ -40,12 +49,6 @@ class Mongo {
 				$manager->executeBulkWrite($dbAndColl, $bulk);
 			};
 		} else {
-			if ($server instanceof \MongoClient) {
-				$db = $server->{$database};
-			} else {
-				$conn = new \MongoClient ("mongodb://$server");
-				$db = $conn->{$database};
-			}
 			return function ($info) use ($db, $collection) {
 				$db->{$collection}->insert ($info);
 			};
