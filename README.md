@@ -1,11 +1,11 @@
-## Analog - PHP 5.3+ micro logging package [![Build Status](https://travis-ci.org/jbroadway/analog.png)](https://travis-ci.org/jbroadway/analog)
+## Analog - PHP micro logging package [![Build Status](https://travis-ci.org/jbroadway/analog.png)](https://travis-ci.org/jbroadway/analog)
 
-* Copyright: (c) 2012 Johnny Broadway
+* Copyright: (c) 2012-Present Johnny Broadway
 * License: http://www.opensource.org/licenses/mit-license.php
 
 <a href='http://www.pledgie.com/campaigns/16595'><img alt='Click here to lend your support to: Analog and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/16595.png?skin_name=chrome' border='0' /></a>
 
-A [MicroPHP](http://microphp.org/) logging package based on the idea of using closures
+A PHP logging package based on the idea of using closures
 for configurability and extensibility. It functions as a static class, but you can
 completely control the writing of log messages through a closure function
 (aka [anonymous functions](http://ca3.php.net/manual/en/functions.anonymous.php)),
@@ -49,7 +49,7 @@ object instance but rather a static class, and I wanted more flexibility in
 the back-end.
 
 I also found some that had the flexibility also had more complexity, for example
-[Monolog](https://github.com/Seldaek/monolog) is 25 source files (not incl. tests).
+[Monolog](https://github.com/Seldaek/monolog) is dozens of source files (not incl. tests).
 With closures, this seemed to be a good balance of small without sacrificing
 flexibility.
 
