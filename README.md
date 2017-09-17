@@ -32,6 +32,7 @@ with examples for each in the examples folder. These include:
 * Mongo - Save to MongoDB collection
 * Multi - Send different log levels to different handlers
 * Post - Send messages over HTTP POST to another machine
+* Slackbot - Post messages to Slack via Slackbot
 * Stderr - Send messages to STDERR
 * Syslog - Send messages to syslog
 * Threshold - Only writes log messages above a certain threshold
