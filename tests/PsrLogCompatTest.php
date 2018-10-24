@@ -8,6 +8,10 @@ use Analog\Logger;
 use Analog\Handler\Variable;
 use Psr\Log\Test\LoggerInterfaceTest;
 
+if (! class_exists ('PHPUnit_Framework_TestCase')) {
+	require_once ('tests/PHPUnit_Framework_TestCase.php');
+}
+
 class PsrLogCompatTest extends LoggerInterfaceTest {
 	private $log = '';
 
