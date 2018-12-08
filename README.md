@@ -30,8 +30,6 @@ $ composer require jbroadway/analog
 use Analog\Analog;
 use Analog\Handler\FirePHP;
 
-Analog::log ('Log this error');
-
 Analog::handler (FirePHP::init ());
 
 Analog::log ('Take me to your browser');
