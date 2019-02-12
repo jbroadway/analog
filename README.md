@@ -92,6 +92,7 @@ Analog also comes with over a dozen pre-written handlers in the Analog/Handlers 
 with examples for each in the examples folder. These include:
 
 * Amon - Send logs to the [Amon](http://amon.cx/) server monitoring tool
+* Apprise - Send notifications through the [apprise](https://github.com/caronc/apprise) command line tool
 * Buffer - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
 * ChromeLogger - Sends messages to [Chrome Logger](http://craig.is/writing/chrome-logger) browser plugin
 * File - Append messages to a file
