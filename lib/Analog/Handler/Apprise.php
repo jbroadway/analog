@@ -28,7 +28,7 @@ class Apprise {
 				$service = escapeshellarg ($service);
 			}
 
-			print (
+			exec (
 				sprintf ('%s -b %s %s',
 					$command,
 					escapeshellarg (vsprintf (\Analog\Analog::$format, $info)),
