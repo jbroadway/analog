@@ -104,6 +104,7 @@ with examples for each in the examples folder. These include:
 * Mail - Send email notices
 * Mongo - Save to MongoDB collection
 * Multi - Send different log levels to different handlers
+* PDO - Send messages to any PDO database connection (MySQL, SQLite, PostgreSQL, etc.)
 * Post - Send messages over HTTP POST to another machine
 * Slackbot - Post messages to Slack via Slackbot
 * Stderr - Send messages to STDERR
