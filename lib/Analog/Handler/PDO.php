@@ -34,9 +34,9 @@ namespace Analog\Handler;
  *
  *     CREATE TABLE `logs` (
  *         `machine` varchar(48),
- *         `date` datetime not null,
- *         `level` int not null,
- *         `message` text not null,
+ *         `date` datetime,
+ *         `level` int,
+ *         `message` text,
  *         index (`machine`)
  *         index (`date`),
  *         index (`level`)
