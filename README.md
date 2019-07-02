@@ -17,7 +17,7 @@ or use the `Analog\Logger` wrapper that implements the
 Install the latest version with:
 
 ```bash
-$ composer require jbroadway/analog
+$ composer require analog/analog
 ```
 
 ## Usage
