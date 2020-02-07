@@ -103,7 +103,7 @@ class Logger implements LoggerInterface {
 	 * Converts a PSR-3 log level to its descriptive name.
 	 */
 	public function log_level_name ($level) {
-		switch ($level) {
+		switch (intval ($level)) {
 			case LogLevel::EMERGENCY:
 				return 'emergency';
 			case LogLevel::ALERT:
