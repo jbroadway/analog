@@ -98,6 +98,31 @@ class Logger implements LoggerInterface {
 			throw new InvalidArgumentException ('Level "' . $level . '" is not defined.');
 		}
 	}
+	
+	/**
+	 * Converts a PSR-3 log level to its descriptive name.
+	 */
+	public function log_level_name ($level) {
+		switch ($level) {
+			case LogLevel::EMERGENCY:
+				return 'emergency';
+			case LogLevel::ALERT:
+				return 'alert';
+			case LogLevel::CRITICAL:
+				return 'critical';
+			case LogLevel::ERROR:
+				return 'error';
+			case LogLevel::WARNING:
+				return 'warning';
+			case LogLevel::NOTICE:
+				return 'notice';
+			case LogLevel::INFO:
+				return 'info';
+			case LogLevel::DEBUG:
+				return 'debug';
+		}
+		throw new InvalidArgumentException ('Level "' . $level . '" is not defined.');
+	}
 
 	/**
 	 * Interpolates context values into the message placeholders.
@@ -214,7 +239,7 @@ class Logger implements LoggerInterface {
 	private function _log ($level, $message, $context) {
 		Analog::log (
 			$this->interpolate ($message, $context),
-			$level
+			$this->log_level_name ($level)
 		);
 	}
 }
