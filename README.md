@@ -1,4 +1,4 @@
-# Analog - PHP micro logging package [![Build Status](https://travis-ci.org/jbroadway/analog.png)](https://travis-ci.org/jbroadway/analog)
+# Analog - PHP micro logging package [![Build Status](https://travis-ci.org/jbroadway/analog.svg?branch=master)](https://travis-ci.org/jbroadway/analog)
 
 * Copyright: (c) 2012-Present Johnny Broadway
 * License: [MIT](http://www.opensource.org/licenses/mit-license.php)
