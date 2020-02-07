@@ -98,31 +98,6 @@ class Logger implements LoggerInterface {
 			throw new InvalidArgumentException ('Level "' . $level . '" is not defined.');
 		}
 	}
-	
-	/**
-	 * Converts a PSR-3 log level to its descriptive name.
-	 */
-	public function log_level_name ($level) {
-		switch (intval ($level)) {
-			case LogLevel::EMERGENCY:
-				return 'emergency';
-			case LogLevel::ALERT:
-				return 'alert';
-			case LogLevel::CRITICAL:
-				return 'critical';
-			case LogLevel::ERROR:
-				return 'error';
-			case LogLevel::WARNING:
-				return 'warning';
-			case LogLevel::NOTICE:
-				return 'notice';
-			case LogLevel::INFO:
-				return 'info';
-			case LogLevel::DEBUG:
-				return 'debug';
-		}
-		throw new InvalidArgumentException ('Level "' . $level . '" is not defined.');
-	}
 
 	/**
 	 * Interpolates context values into the message placeholders.
@@ -169,7 +144,7 @@ class Logger implements LoggerInterface {
 	 * System is unusable.
 	 */
 	public function emergency ($message, array $context = array ()) {
-		$this->_log (Analog::URGENT, $message, $context);
+		$this->_log (LogLevel::EMERGENCY, $message, $context);
 	}
 
 	/**
@@ -183,7 +158,7 @@ class Logger implements LoggerInterface {
 	 * Critical conditions.
 	 */
 	public function critical ($message, array $context = array ()) {
-		$this->_log (Analog::CRITICAL, $message, $context);
+		$this->_log (LogLevel::CRITICAL, $message, $context);
 	}
 
 	/**
@@ -191,35 +166,35 @@ class Logger implements LoggerInterface {
 	 * be logged and monitored.
 	 */
 	public function error ($message, array $context = array ()) {
-		$this->_log (Analog::ERROR, $message, $context);
+		$this->_log (LogLevel::ERROR, $message, $context);
 	}
 
 	/**
 	 * Exceptional occurrences that are not errors.
 	 */
 	public function warning ($message, array $context = array ()) {
-		$this->_log (Analog::WARNING, $message, $context);
+		$this->_log (LogLevel::WARNING, $message, $context);
 	}
 
 	/**
 	 * Normal but significant events.
 	 */
 	public function notice ($message, array $context = array ()) {
-		$this->_log (Analog::NOTICE, $message, $context);
+		$this->_log (LogLevel::NOTICE, $message, $context);
 	}
 
 	/**
 	 * Interesting events.
 	 */
 	public function info ($message, array $context = array ()) {
-		$this->_log (Analog::INFO, $message, $context);
+		$this->_log (LogLevel::INFO, $message, $context);
 	}
 
 	/**
 	 * Detailed debug information.
 	 */
 	public function debug ($message, array $context = array ()) {
-		$this->_log (Analog::DEBUG, $message, $context);
+		$this->_log (LogLevel::DEBUG, $message, $context);
 	}
 
 	/**
@@ -227,7 +202,7 @@ class Logger implements LoggerInterface {
 	 */
 	public function log ($level, $message, array $context = array ()) {
 		$this->_log (
-			$this->convert_log_level ($level),
+			$level,
 			$message,
 			$context
 		);
@@ -239,7 +214,7 @@ class Logger implements LoggerInterface {
 	private function _log ($level, $message, $context) {
 		Analog::log (
 			$this->interpolate ($message, $context),
-			$this->log_level_name ($level)
+			$level
 		);
 	}
 }
