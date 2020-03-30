@@ -80,6 +80,20 @@ Analog::log ('The sky is falling!', Analog::ALERT);
 Analog::log ('Debugging info', Analog::DEBUG);
 ```
 
+### Usage without composer
+
+Analog uses a simple autoloader internally, so if you don't have access to [composer](https://getcomposer.org/) you can clone this repository and include it like this:
+
+```php
+<?php
+
+require 'analog/lib/Analog.php';
+
+Analog::handler (Analog\Handler\Stderr::init ());
+
+Analog::log ('Output to php://stderr');
+```
+
 For more examples, see the [examples](https://github.com/jbroadway/analog/tree/master/examples) folder.
 
 ## Logging Options
