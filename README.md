@@ -95,7 +95,7 @@ with examples for each in the examples folder. These include:
 * Apprise - Send notifications through the [apprise](https://github.com/caronc/apprise) command line tool
 * Buffer - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
 * ChromeLogger - Sends messages to [Chrome Logger](http://craig.is/writing/chrome-logger) browser plugin
-* Echo - Echo output directly to the console
+* EchoConsole - Echo output directly to the console
 * File - Append messages to a file
 * FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
 * GELF - Send message to the [Graylog2](http://www.graylog2.org/) log management server
