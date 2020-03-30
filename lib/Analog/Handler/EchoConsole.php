@@ -7,13 +7,13 @@ namespace Analog\Handler;
  *
  * Usage:
  *
- *     Analog::handler (Analog\Handler\Echo::init ());
+ *     Analog::handler (Analog\Handler\EchoConsole::init ());
  *     
  *     Analog::log ('Log me');
  *
  * Note: Uses Analog::$format for the output format.
  */
-class Echo {
+class EchoConsole {
 	public static function init () {
 		return function ($info) {
 			vprintf (\Analog\Analog::$format, $info);
