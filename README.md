@@ -105,27 +105,27 @@ customization necessary.
 Analog also comes with over a dozen pre-written handlers in the Analog/Handlers folder,
 with examples for each in the examples folder. These include:
 
-* Amon - Send logs to the [Amon](http://amon.cx/) server monitoring tool
-* Apprise - Send notifications through the [apprise](https://github.com/caronc/apprise) command line tool
-* Buffer - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
-* ChromeLogger - Sends messages to [Chrome Logger](http://craig.is/writing/chrome-logger) browser plugin
-* EchoConsole - Echo output directly to the console
-* File - Append messages to a file
-* FirePHP - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
-* GELF - Send message to the [Graylog2](http://www.graylog2.org/) log management server
-* Ignore - Do nothing
-* LevelBuffer - Buffer messages and send only if sufficient error level reached
-* LevelName - Convert log level numbers to names in log output
-* Mail - Send email notices
-* Mongo - Save to MongoDB collection
-* Multi - Send different log levels to different handlers
-* PDO - Send messages to any PDO database connection (MySQL, SQLite, PostgreSQL, etc.)
-* Post - Send messages over HTTP POST to another machine
-* Slackbot - Post messages to Slack via Slackbot
-* Stderr - Send messages to STDERR
-* Syslog - Send messages to syslog
-* Threshold - Only writes log messages above a certain threshold
-* Variable - Buffer messages to a variable reference.
+* [Amon](https://github.com/jbroadway/analog/blob/master/examples/amon.php) - Send logs to the [Amon](http://amon.cx/) server monitoring tool
+* [Apprise](https://github.com/jbroadway/analog/blob/master/examples/apprise.php) - Send notifications through the [apprise](https://github.com/caronc/apprise) command line tool
+* [Buffer](https://github.com/jbroadway/analog/blob/master/examples/buffer.php) - Buffer messages to send all at once (works with File, Mail, Stderr, and Variable handlers)
+* [ChromeLogger](https://github.com/jbroadway/analog/blob/master/examples/chromelogger.php) - Sends messages to [Chrome Logger](http://craig.is/writing/chrome-logger) browser plugin
+* [EchoConsole](https://github.com/jbroadway/analog/blob/master/examples/echoconsole.php) - Echo output directly to the console
+* [File](https://github.com/jbroadway/analog/blob/master/examples/file.php) - Append messages to a file
+* [FirePHP](https://github.com/jbroadway/analog/blob/master/examples/firephp.php) - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
+* [GELF](https://github.com/jbroadway/analog/blob/master/examples/gelf.php) - Send message to the [Graylog2](http://www.graylog2.org/) log management server
+* [Ignore](https://github.com/jbroadway/analog/blob/master/examples/ignore.php) - Do nothing
+* [LevelBuffer](https://github.com/jbroadway/analog/blob/master/examples/levelbuffer.php) - Buffer messages and send only if sufficient error level reached
+* [LevelName](https://github.com/jbroadway/analog/blob/master/examples/levelname.php) - Convert log level numbers to names in log output
+* [Mail](https://github.com/jbroadway/analog/blob/master/examples/mail.php) - Send email notices
+* [Mongo](https://github.com/jbroadway/analog/blob/master/examples/mongo.php) - Save to MongoDB collection
+* [Multi](https://github.com/jbroadway/analog/blob/master/examples/multi.php) - Send different log levels to different handlers
+* [PDO](https://github.com/jbroadway/analog/blob/master/examples/pdo.php) - Send messages to any PDO database connection (MySQL, SQLite, PostgreSQL, etc.)
+* [Post](https://github.com/jbroadway/analog/blob/master/examples/post.php) - Send messages over HTTP POST to another machine
+* [Slackbot](https://github.com/jbroadway/analog/blob/master/examples/slackbot.php) - Post messages to Slack via Slackbot
+* [Stderr](https://github.com/jbroadway/analog/blob/master/examples/stderr.php) - Send messages to STDERR
+* [Syslog](https://github.com/jbroadway/analog/blob/master/examples/syslog.php) - Send messages to syslog
+* [Threshold](https://github.com/jbroadway/analog/blob/master/examples/threshold.php) - Only writes log messages above a certain threshold
+* [Variable](https://github.com/jbroadway/analog/blob/master/examples/variable.php) - Buffer messages to a variable reference.
 
 So while it's a micro class, it's highly extensible and very capable out of the box too.
 
