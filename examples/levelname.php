@@ -9,7 +9,7 @@ Analog::handler (Analog\Handler\LevelName::init (
 	Analog\Handler\EchoConsole::init ()
 ));
 
-// none of these will trigger sending the log
+// These should output with warning levels converted to text
 Analog::log ('Debugging...', Analog::DEBUG);
 Analog::log ('Minor warning...', Analog::WARNING);
 Analog::log ('An error...', Analog::ERROR);
