@@ -6,8 +6,7 @@ require '../lib/Analog.php';
 Analog::$format = "%s - %s - %s - %s\n";
 
 Analog::handler (Analog\Handler\LevelName::init (
-	Analog\Handler\EchoConsole::init (),
-	Analog::CRITICAL
+	Analog\Handler\EchoConsole::init ()
 ));
 
 // none of these will trigger sending the log
