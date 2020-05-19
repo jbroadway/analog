@@ -113,6 +113,7 @@ with examples for each in the examples folder. These include:
 * [File](https://github.com/jbroadway/analog/blob/master/examples/file.php) - Append messages to a file
 * [FirePHP](https://github.com/jbroadway/analog/blob/master/examples/firephp.php) - Send messages to [FirePHP](http://www.firephp.org/) browser plugin
 * [GELF](https://github.com/jbroadway/analog/blob/master/examples/gelf.php) - Send message to the [Graylog2](http://www.graylog2.org/) log management server
+* [IFTTT](https://github.com/jbroadway/analog/blob/master/examples/ifttt.php) - Trigger webhooks via the [IFTTT](https://ifttt.com/) service
 * [Ignore](https://github.com/jbroadway/analog/blob/master/examples/ignore.php) - Do nothing
 * [LevelBuffer](https://github.com/jbroadway/analog/blob/master/examples/levelbuffer.php) - Buffer messages and send only if sufficient error level reached
 * [LevelName](https://github.com/jbroadway/analog/blob/master/examples/levelname.php) - Convert log level numbers to names in log output
