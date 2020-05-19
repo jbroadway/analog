@@ -102,7 +102,7 @@ By default, this class will write to a file named `sys_get_temp_dir() . '/analog
 using the format `"machine - date - level - message\n"`, making it usable with no
 customization necessary.
 
-Analog also comes with over a dozen pre-written handlers in the Analog/Handlers folder,
+Analog also comes with dozens of pre-written handlers in the Analog/Handlers folder,
 with examples for each in the examples folder. These include:
 
 * [Amon](https://github.com/jbroadway/analog/blob/master/examples/amon.php) - Send logs to the [Amon](http://amon.cx/) server monitoring tool
@@ -127,7 +127,8 @@ with examples for each in the examples folder. These include:
 * [Stderr](https://github.com/jbroadway/analog/blob/master/examples/stderr.php) - Send messages to STDERR
 * [Syslog](https://github.com/jbroadway/analog/blob/master/examples/syslog.php) - Send messages to syslog
 * [Threshold](https://github.com/jbroadway/analog/blob/master/examples/threshold.php) - Only writes log messages above a certain threshold
-* [Variable](https://github.com/jbroadway/analog/blob/master/examples/variable.php) - Buffer messages to a variable reference.
+* [Variable](https://github.com/jbroadway/analog/blob/master/examples/variable.php) - Buffer messages to a variable reference
+* [WPMail](https://github.com/jbroadway/analog/blob/master/examples/wpmail.php) - Send email notices using Wordpress `wp_mail()`
 
 So while it's a micro class, it's highly extensible and very capable out of the box too.
 
