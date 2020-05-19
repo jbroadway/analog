@@ -122,6 +122,7 @@ with examples for each in the examples folder. These include:
 * [Multi](https://github.com/jbroadway/analog/blob/master/examples/multi.php) - Send different log levels to different handlers
 * [PDO](https://github.com/jbroadway/analog/blob/master/examples/pdo.php) - Send messages to any PDO database connection (MySQL, SQLite, PostgreSQL, etc.)
 * [Post](https://github.com/jbroadway/analog/blob/master/examples/post.php) - Send messages over HTTP POST to another machine
+* [Redis](https://github.com/jbroadway/analog/blob/master/examples/redis.php) - Save messages to Redis key using RPUSH
 * [Slackbot](https://github.com/jbroadway/analog/blob/master/examples/slackbot.php) - Post messages to Slack via Slackbot
 * [Stderr](https://github.com/jbroadway/analog/blob/master/examples/stderr.php) - Send messages to STDERR
 * [Syslog](https://github.com/jbroadway/analog/blob/master/examples/syslog.php) - Send messages to syslog
