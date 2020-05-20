@@ -1,8 +1,8 @@
 {
 	"name": "analog/analog",
 	"type": "library",
-	"description": "Fast, flexible, and easy PHP logging class with over 20 log handlers, supports PSR-3, and can also be extended via closures.",
-	"keywords": ["log", "logging", "logger", "syslog", "error", "debug", "debugging", "alerts"],
+	"description": "Fast, flexible, easy PSR-3-compatible PHP logging package with dozens of handlers.",
+	"keywords": ["log", "logs", "logging", "logger", "error", "errors", "debug", "debugging", "alerts", "monitor", "monitoring", "syslog", "gelf", "amon", "psr-3", "psr3", "stderr", "console", "firephp", "chrome-logger", "apprise"],
 	"homepage": "https://github.com/jbroadway/analog",
 	"license": "MIT",
 	"authors": [
