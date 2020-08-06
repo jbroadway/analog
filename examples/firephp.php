@@ -1,6 +1,5 @@
 <?php
 
-// 1. Install the FirePHP library via `composer require firephp/firephp-core`
 require '../lib/Analog.php';
 
 Analog::handler (Analog\Handler\FirePHP::init ());
