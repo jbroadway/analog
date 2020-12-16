@@ -13,7 +13,7 @@ jobs:
     
     runs-on: ubuntu-latest
     
-    stategy:
+    strategy:
       matrix:
         php-version:
           - "7.2"
