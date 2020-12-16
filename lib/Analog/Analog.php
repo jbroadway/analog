@@ -52,12 +52,12 @@ namespace Analog;
  * Usage:
  *
  *     <?php
- *     
+ *
  *     require_once ('Analog.php');
- *     
+ *
  *     // Default logging to /tmp/analog.txt
  *     Analog::log ('Log this error');
- *     
+ *
  *     // Log to a MongoDB log collection
  *     Analog::handler (function ($info) {
  *         static $conn = null;
@@ -66,13 +66,13 @@ namespace Analog;
  *         }
  *         $conn->mydb->log->insert ($info);
  *     });
- *     
+ *
  *     // Log an alert
  *     Analog::log ('The sky is falling!', Analog::ALERT);
- *     
+ *
  *     // Log some debug info
  *     Analog::log ('Debugging info', Analog::DEBUG);
- *     
+ *
  *     ?>
  *
  * @package Analog
@@ -103,12 +103,12 @@ class Analog {
 	 * Feeds into the `$format` property.
 	 */
 	public static $date_format = 'Y-m-d H:i:s';
-	
+
 	/**
 	 * Timezone for date/time values.
 	 */
 	public static $timezone = 'GMT';
-	
+
 	/**
 	 * Default log level.
 	 */
@@ -191,7 +191,7 @@ class Analog {
 		$level = ($level !== null) ? $level : self::$default_level;
 		return self::write (self::get_struct ($message, $level));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::URGENT)
 	 * Usage:
@@ -201,7 +201,7 @@ class Analog {
 	public static function urgent ($message) {
 		return self::write (self::get_struct ($message, self::URGENT));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::ALERT)
 	 * Usage:
@@ -211,7 +211,7 @@ class Analog {
 	public static function alert ($message) {
 		return self::write (self::get_struct ($message, self::ALERT));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::ERROR)
 	 * Usage:
@@ -221,7 +221,7 @@ class Analog {
 	public static function error ($message) {
 		return self::write (self::get_struct ($message, self::ERROR));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::WARNING)
 	 * Usage:
@@ -231,7 +231,7 @@ class Analog {
 	public static function warning ($message) {
 		return self::write (self::get_struct ($message, self::WARNING));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::NOTICE)
 	 * Usage:
@@ -241,7 +241,7 @@ class Analog {
 	public static function notice ($message) {
 		return self::write (self::get_struct ($message, self::NOTICE));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::INFO)
 	 * Usage:
@@ -251,7 +251,7 @@ class Analog {
 	public static function info ($message) {
 		return self::write (self::get_struct ($message, self::INFO));
 	}
-	
+
 	/**
 	 * Shortcut method for Analog::log($info, Analog::DEBUG)
 	 * Usage:
@@ -261,5 +261,15 @@ class Analog {
 	public static function debug ($message) {
 		return self::write (self::get_struct ($message, self::DEBUG));
 	}
-	
+
+    /**
+	 * specific timezone set
+	 * Usage:
+	 *
+	 *     Analog::setTimeZone("America/Recife");
+	 */
+	public static function setTimeZone ($timezone) {
+		self::$timezone = $timezone;
+	}
+
 }
