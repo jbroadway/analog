@@ -19,14 +19,9 @@ jobs:
           - "7.2"
           - "7.3"
           - "7.4"
-          - "8.0"
+          #- "8.0"
         
         dependencies: [highest]
-        include:
-          - php-version: "7.2"
-            dependencies: lowest
-          - php-version: "8.0"
-            dependencies: lowest
     
     steps:
       - name: "Checkout"
@@ -37,15 +32,6 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
-
-      # This does not affect runtime, only tests were fixed in psr/log 1.1.2 so it's
-      # ok to require this only when running tests
-      - name: "Bump required version of psr/log to fix the --prefer-lowest builds"
-        run: 'composer require ${{ env.COMPOSER_FLAGS }} psr/log:^1.1.2 --no-update'
-
-      - name: "Handle lowest dependencies update"
-        if: "contains(matrix.dependencies, 'lowest')"
-        run: "echo \"COMPOSER_FLAGS=$COMPOSER_FLAGS --prefer-lowest\" >> $GITHUB_ENV"
     
       - name: "Install dependencies"
         run: |
