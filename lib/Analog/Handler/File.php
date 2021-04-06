@@ -18,9 +18,21 @@ namespace Analog\Handler;
 class File {
 	public static function init ($file) {
 		return function ($info, $buffered = false) use ($file) {
-			$f = fopen ($file, 'a+');
-			if (! $f) {
-				throw new \LogicException ('Could not open file for writing');
+			static $f = null;
+			
+			if ($f == null) {
+				$f = fopen ($file, 'a+');
+				
+				if (! $f) {
+					throw new \LogicException ('Could not open file for writing');
+				}
+				
+				register_shutdown_function (function () use ($f) {
+					if ($f != null) {
+						fclose ($f);
+						$f = null;
+					}
+				});
 			}
 	
 			if (! flock ($f, LOCK_EX)) {
@@ -31,7 +43,6 @@ class File {
 				? $info
 				: vsprintf (\Analog\Analog::$format, $info));
 			flock ($f, LOCK_UN);
-			fclose ($f);
 		};
 	}
 }
