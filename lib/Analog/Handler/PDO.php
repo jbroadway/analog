@@ -49,7 +49,7 @@ namespace Analog\Handler;
 class PDO {
 	public static function init ($pdo, $table) {
 		if (is_array ($pdo)) {
-			$pdo = new \PDO ($pdo[0], $pdo[1], $pdo[2], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+			$pdo = new \PDO ($pdo[0], $pdo[1], $pdo[2], [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
 		}
 		
 		$stmt = $pdo->prepare (
