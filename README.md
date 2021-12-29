@@ -1,9 +1,10 @@
-# Analog - Minimal PHP logging library <!-- [![Build Status](https://travis-ci.org/jbroadway/analog.svg?branch=master)](https://travis-ci.org/jbroadway/analog) -->
+# Analog - Minimal PHP logging library
 
-* Copyright: (c) 2012-Present Johnny Broadway
-* License: [MIT](http://www.opensource.org/licenses/mit-license.php)
-
-<!-- a href='http://www.pledgie.com/campaigns/16595'><img alt='Click here to lend your support to: Analog and make a donation at www.pledgie.com !' src='http://www.pledgie.com/campaigns/16595.png?skin_name=chrome' border='0' /></a -->
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jbroadway/analog/Continuous%20Integration)
+![GitHub](https://img.shields.io/github/license/jbroadway/analog)
+![Packagist Version](https://img.shields.io/packagist/v/analog/analog)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/analog/analog)
+![Packagist Downloads](https://img.shields.io/packagist/dt/analog/analog)
 
 A minimal PHP logging package based on the idea of using closures
 for configurability and extensibility. It functions as a static class, but you can
