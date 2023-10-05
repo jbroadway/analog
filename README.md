@@ -1,6 +1,6 @@
 # Analog - Minimal PHP logging library
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jbroadway/analog/Continuous%20Integration)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jbroadway/analog/ci.yml?branch=master)
 ![GitHub](https://img.shields.io/github/license/jbroadway/analog)
 ![Packagist Version](https://img.shields.io/packagist/v/analog/analog)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/analog/analog)
