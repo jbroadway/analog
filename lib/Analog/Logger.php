@@ -52,6 +52,8 @@ use Psr\Log\InvalidArgumentException;
  * @author Johnny Broadway
  */
 class Logger implements LoggerInterface {
+	private $handler = null;
+
 	/**
 	 * Converts from PSR-3 log levels to Analog log levels.
 	 */
@@ -130,7 +132,7 @@ class Logger implements LoggerInterface {
 	 * Sets the Analog log handler.
 	 */
 	public function handler ($handler) {
-		Analog::handler ($handler);
+		$this->handler = $handler;
 	}
 
 	/**
@@ -212,6 +214,10 @@ class Logger implements LoggerInterface {
 	 * Perform the logging to Analog after the log level has been converted.
 	 */
 	private function _log ($level, $message, $context) {
+		if ($this->handler != null) {
+			Analog::handler ($this->handler);
+		}
+
 		Analog::log (
 			$this->interpolate ($message, $context),
 			$level
