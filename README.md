@@ -52,6 +52,9 @@ $logger->handler (Variable::init ($log));
 
 $logger->alert ('Things are really happening right now!');
 
+// With context
+$logger->debug ('Testing {0}:{1}', [__FILE__, __LINE__]);
+
 var_dump ($log);
 ```
 
