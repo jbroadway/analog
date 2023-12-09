@@ -56,4 +56,22 @@ class Buffer {
 		$handler = self::$handler;
 		return $handler (self::$buffer, true);
 	}
+
+	/**
+	 * For use as a class instance
+	 */
+	private $_handler;
+	private $_buffer = '';
+	
+	public function __construct ($handler) {
+		$this->_handler = $handler;
+	}
+
+	public function log ($info) {
+		$this->_buffer .= vsprintf (\Analog\Analog::$format, $info);
+	}
+
+	public function __destruct () {
+		call_user_func ($this->_handler, $this->_buffer, true);
+	}
 }

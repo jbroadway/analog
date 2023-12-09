@@ -42,4 +42,20 @@ class Threshold {
 		};
 	}
 
+	/**
+	 * For use as a class instance
+	 */
+	private $_handler;
+	private $_until_level = 3;
+
+	public function __construct ($handler, $until_level = 3) {
+		$this->_handler = $handler;
+		$this->_until_level = $until_level;
+	}
+
+	public function log ($info) {
+		if ($inf['level'] <= $this->_until_level) {
+			call_user_func ($this->_handler, $info);
+		}
+	}
 }

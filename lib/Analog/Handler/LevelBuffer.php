@@ -60,4 +60,25 @@ class LevelBuffer {
 		$handler = self::$handler;
 		return $handler (self::$buffer, true);
 	}
+
+	/**
+	 * For use as a class instance
+	 */
+	private $_handler;
+	private $_until_level = 2;
+	private $_buffer = '';
+
+	public function __construct ($handler, $until_level = 2) {
+		$this->_handler = $handler;
+		$this->_until_level = $until_level;
+	}
+
+	public function log ($info) {
+		$this->_buffer .= vsprintf (\Analog\Analog::$format, $info);
+		if ($info['level'] <= $this->_until_level) {
+			// flush and reset the buffer
+			call_user_func ($this->_handler, $this->_buffer, true);
+			$this->_buffer = '';
+		}
+	}
 }

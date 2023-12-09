@@ -47,4 +47,16 @@ class LevelName {
 		};
 	}
 
+	private $_handler;
+
+	public function __construct ($handler) {
+		$this->_handler = $handler;
+	}
+
+	public function log ($info) {
+		if (isset(self::$log_levels[$info['level']])) {
+			$info['level'] = self::$log_levels[$info['level']];
+		}
+		call_user_func ($this->_handler, $info);
+	}
 }
