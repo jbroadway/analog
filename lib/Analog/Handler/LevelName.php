@@ -47,6 +47,9 @@ class LevelName {
 		};
 	}
 
+	/**
+	 * For use as a class instance
+	 */
 	private $_handler;
 
 	public function __construct ($handler) {
