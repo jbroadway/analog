@@ -33,23 +33,31 @@ namespace Analog\Handler;
  */
 class Multi {
 	public static function init ($handlers) {
-		return function ($info) use ($handlers) {
-			$level = is_numeric ($info['level']) ? $info['level'] : 3;
-			while ($level <= 7) {
-				if ( isset ( $handlers[ $level ] ) ) {
+		return new Multi ($handlers);
+	}
 
-					if ( ! is_array( $handlers[ $level ] ) ) {
-						$handlers[ $level ] = array( $handlers[ $level ] );
-					}
+	/**
+	 * For use as a class instance
+	 */
+	private $_handlers;
 
-					foreach ( $handlers[ $level ] as $handler ) {
-						$handler( $info );
-					}
+	public function __construct ($handlers) {
+		$this->_handlers = $handlers;
+	}
 
-					return;
+	public function log ($info) {
+		$level = is_numeric ($info['level']) ? $info['level'] : 3;
+		while ($level <= 7) {
+			if (isset ($this->_handlers[$level])) {
+				if (! is_array ($this->_handlers[$level])) {
+					$this->_handlers[$level] = array ($this->_handlers[$level]);
 				}
-				$level++;
+
+				foreach ($this->_handlers[$level] as $handler) {
+					$handler ($info);
+				}
 			}
-		};
+			$level++;
+		}
 	}
 }

@@ -30,21 +30,23 @@ class LevelName {
 		\Analog\Analog::URGENT   => 'URGENT'
 	);
 
-	/**
-	 * This contains the handler to send to
-	 */
-	public static $handler;
-
 	public static function init ($handler) {
-		self::$handler = $handler;
-
-		return function ($info) {
-			if (isset(self::$log_levels[$info['level']])) {
-				$info['level'] = self::$log_levels[$info['level']];
-			}
-			$handler = LevelName::$handler;
-			$handler ($info);
-		};
+		return new LevelName ($handler);
 	}
 
+	/**
+	 * For use as a class instance
+	 */
+	private $_handler;
+
+	public function __construct ($handler) {
+		$this->_handler = $handler;
+	}
+
+	public function log ($info) {
+		if (isset(self::$log_levels[$info['level']])) {
+			$info['level'] = self::$log_levels[$info['level']];
+		}
+		call_user_func ($this->_handler, $info);
+	}
 }
