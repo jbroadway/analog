@@ -174,6 +174,10 @@ class Analog {
 		$handler = self::handler ();
 
 		if (! $handler instanceof \Closure) {
+			if (is_object ($handler) && method_exists ($handler, 'log')) {
+				return $handler->log ($struct);
+			}
+
 			$handler = \Analog\Handler\File::init ($handler);
 		}
 		return $handler ($struct);
