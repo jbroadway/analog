@@ -2,6 +2,7 @@
 
 namespace Analog;
 
+use Stringable;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use Psr\Log\InvalidArgumentException;
@@ -145,21 +146,21 @@ class Logger implements LoggerInterface {
 	/**
 	 * System is unusable.
 	 */
-	public function emergency ($message, array $context = array ()) {
+	public function emergency (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::URGENT, $message, $context);
 	}
 
 	/**
 	 * Action must be taken immediately.
 	 */
-	public function alert ($message, array $context = array ()) {
+	public function alert (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::ALERT, $message, $context);
 	}
 
 	/**
 	 * Critical conditions.
 	 */
-	public function critical ($message, array $context = array ()) {
+	public function critical (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::CRITICAL, $message, $context);
 	}
 
@@ -167,42 +168,42 @@ class Logger implements LoggerInterface {
 	 * Runtime errors that do not require immediate action but should typically
 	 * be logged and monitored.
 	 */
-	public function error ($message, array $context = array ()) {
+	public function error (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::ERROR, $message, $context);
 	}
 
 	/**
 	 * Exceptional occurrences that are not errors.
 	 */
-	public function warning ($message, array $context = array ()) {
+	public function warning (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::WARNING, $message, $context);
 	}
 
 	/**
 	 * Normal but significant events.
 	 */
-	public function notice ($message, array $context = array ()) {
+	public function notice (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::NOTICE, $message, $context);
 	}
 
 	/**
 	 * Interesting events.
 	 */
-	public function info ($message, array $context = array ()) {
+	public function info (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::INFO, $message, $context);
 	}
 
 	/**
 	 * Detailed debug information.
 	 */
-	public function debug ($message, array $context = array ()) {
+	public function debug (Stringable|string $message, array $context = array ()) : void {
 		$this->_log (Analog::DEBUG, $message, $context);
 	}
 
 	/**
 	 * Logs with an arbitrary level.
 	 */
-	public function log ($level, $message, array $context = array ()) {
+	public function log ($level, Stringable|string $message, array $context = array ()) : void {
 		$this->_log (
 			$this->convert_log_level ($level),
 			$message,
